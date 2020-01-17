@@ -32,7 +32,7 @@
     </properties>
 
     <modules>
-        <module>micronaut-hibernate-jpa-example</module>
+        <module>micronaut-hibernate-jpa</module>
         <module>springboot-junit4</module>
         <module>springboot-junit5</module>
     </modules>

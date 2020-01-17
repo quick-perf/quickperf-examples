@@ -5,4 +5,4 @@ This repository contains examples showing how to use [QuickPerf](https://github.
 The following applications are available:
 - [springboot-junit4](springboot-junit4): This Spring Boot project illustrates how to use QuickPerf with JUnit 4. 
 - [springboot-junit5](springboot-junit5): This Spring Boot project illustrates how to use QuickPerf with JUnit 5. 
-- [micronaut-hibernate-jpa-example](micronaut-hibernate-jpa-example): Micronaut Hibernate JPA with JUnit5 test using both QuickPerf JVM and SQL annotations. 
+- [micronaut-hibernate-jpa](micronaut-hibernate-jpa): Micronaut Hibernate JPA with JUnit5 test using both QuickPerf JVM and SQL annotations. 
