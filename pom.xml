@@ -33,7 +33,7 @@
 
     <modules>
         <module>micronaut-hibernate-jpa-example</module>
-        <module>springboot-junit4-examples</module>
+        <module>springboot-junit4</module>
         <module>springboot-junit5</module>
     </modules>
 
