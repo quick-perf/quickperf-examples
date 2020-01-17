@@ -34,6 +34,7 @@
 
     <modules>
         <module>micronaut-hibernate-jpa-example</module>
+        <module>springboot-junit4-examples</module>
     </modules>
 
     <dependencyManagement>
