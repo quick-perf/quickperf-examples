@@ -1,6 +1,15 @@
+# Maven
+target
 
-.idea/
-
+# IntelliJ
+.idea
 *.iml
+out
 
+# Eclipse
+.classpath
+.project
+.settings
+
+# Micronaut
 micronaut-junit5-example/dependency-reduced-pom.xml
