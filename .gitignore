@@ -4,3 +4,5 @@
 *.iml
 
 micronaut-junit5-example/dependency-reduced-pom.xml
+
+lsp/
