@@ -23,12 +23,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.test.skip>true</maven.test.skip>
-        <quickperf.version>1.0.0-RC5</quickperf.version>
-        <junit5.jupiter.version>5.6.0-RC1</junit5.jupiter.version>
-        <junit5.platform.version>1.6.0-RC1</junit5.platform.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <modules>
@@ -36,40 +32,5 @@
         <module>springboot-junit4</module>
         <module>springboot-junit5</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- force the version of JUnit5 for the one needed by Quickperf -->
-
-            <!--https://github.com/junit-team/junit5/issues/1773
-            <dependency>
-               <groupId>org.junit.jupiter</groupId>
-               <artifactId>junit-jupiter</artifactId>
-               <version>5.6.0-M1</version>
-               <scope>test</scope>
-            </dependency>
-            -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>${junit5.jupiter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>${junit5.jupiter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.quickperf</groupId>
-                <artifactId>quick-perf-sql-annotations</artifactId>
-                <version>${quickperf.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.quickperf</groupId>
-                <artifactId>quick-perf-junit5</artifactId>
-                <version>${quickperf.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
 </project>

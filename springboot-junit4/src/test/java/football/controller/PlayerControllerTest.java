@@ -50,10 +50,10 @@ public class PlayerControllerTest {
     public void should_find_all_players() {
 
         // GIVEN
-        String getUrl = "http://localhost:" + port + "/players";
+        String url = "http://localhost:" + port + "/players";
 
         // WHEN
-        ResponseEntity<List> playersResponseEntity = restTemplate.getForEntity(getUrl, List.class);
+        ResponseEntity<List> playersResponseEntity = restTemplate.getForEntity(url, List.class);
         List<PlayerWithTeamName> players = playersResponseEntity.getBody();
 
         // THEN

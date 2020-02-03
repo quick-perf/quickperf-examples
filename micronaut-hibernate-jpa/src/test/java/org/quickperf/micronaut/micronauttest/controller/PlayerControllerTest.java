@@ -36,7 +36,7 @@ public class PlayerControllerTest {
 
     @Inject
     @Client("/")
-    RxHttpClient client;
+    private RxHttpClient client;
 
     @ExpectSelect(1)
     @HeapSize(value = 50, unit = AllocationUnit.MEGA_BYTE)
@@ -44,9 +44,10 @@ public class PlayerControllerTest {
     public void should_find_all_players() {
 
         // GIVEN
+        String uri = "/players";
 
         // WHEN
-        List<PlayerWithTeamName> players = client.toBlocking().retrieve(HttpRequest.GET("/players"), Argument.of(List.class, PlayerWithTeamName.class));
+        List<PlayerWithTeamName> players = client.toBlocking().retrieve(HttpRequest.GET(uri), Argument.of(List.class, PlayerWithTeamName.class));
 
         // THEN
         assertThat(players).hasSize(2);
