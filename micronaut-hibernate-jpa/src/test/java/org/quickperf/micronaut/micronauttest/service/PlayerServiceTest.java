@@ -31,7 +31,16 @@ public class PlayerServiceTest {
     @Inject
     private PlayerService playerService;
 
-    @ExpectSelect(1)
+    //@FunctionalIteration // You can use @FunctionalIteration or @DisableQuickPerf
+    // to disable QuickPerf features and focus on functional
+    // behavior (not performance behavior) in a first step.
+    // In a second step, you can remove @FunctionalIteration
+    // or @DisableQuickPerf to evaluate some performance
+    // properties.
+    // We recommend to do one step at a time.
+    // The test will fail because N+1 select is detected from
+    // disableSameSelectTypesWithDifferentParams defined in QuickPerfConfiguration
+    // class.
     @Test
     public void should_find_all_players_with_team_name() {
 
