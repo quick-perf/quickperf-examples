@@ -16,3 +16,13 @@ This Spring Boot project illustrates how to use QuickPerf with JUnit 5.
 
 * **[micronaut-hibernate-jpa](micronaut-hibernate-jpa)**<br>
 Micronaut Hibernate JPA with JUnit5 test using both QuickPerf JVM and SQL annotations. 
+
+To run the examples, you can
+* Execute the following command lines:
+  ```bash
+  git clone https://github.com/quick-perf/quickperf-examples.git
+  cd quickperf-examples
+  mvn compile
+  ```
+* Import the _quickperf-examples_ project in your IDE
+* Run tests from your IDE
