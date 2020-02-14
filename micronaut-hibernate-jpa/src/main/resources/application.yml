@@ -14,5 +14,5 @@ jpa:
     properties:
       hibernate:
         hbm2ddl:
-          auto: drop-and-create
+          auto: create-drop
         show_sql: true
