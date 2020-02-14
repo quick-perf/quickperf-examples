@@ -55,3 +55,7 @@ This Spring Boot project illustrates how to use QuickPerf with **JUnit 5**.
 ## Micronaut
 **[micronaut-hibernate-jpa](micronaut-hibernate-jpa)**<br>
 This Micronaut/Hibernate/JPA project illustrates how to use QuickPerf with **JUnit 5**. 
+
+## Quarkus
+**[quarkus](quarkus)**<br>
+This Quarkus project illustrates how to use QuickPerf with **JUnit 5** for SQL annotations only. 
