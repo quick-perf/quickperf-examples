@@ -11,29 +11,37 @@
   ~
   ~ Copyright 2020-2020 the original author or authors.
   -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>examples-parent</artifactId>
+        <groupId>org.quickperf.examples</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.quickperf.examples</groupId>
-    <artifactId>examples-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <artifactId>jvm-testng</artifactId>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.test.skip>true</maven.test.skip>
     </properties>
 
-    <modules>
-        <module>jvm-junit4</module>
-        <module>jvm-junit5</module>
-        <module>jvm-testng</module>
-        <module>springboot-junit4</module>
-        <module>springboot-junit5</module>
-        <module>micronaut-hibernate-jpa</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.quickperf</groupId>
+            <artifactId>quick-perf-testng</artifactId>
+            <version>1.0.0-RC6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.0.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
