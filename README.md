@@ -15,7 +15,7 @@ Examples showing how to use some [JVM annotations](https://github.com/quick-perf
 Examples showing how to use some [JVM annotations](https://github.com/quick-perf/doc/wiki/JVM-annotations) together with JUnit 5.
 
 * **[jvm-testng](jvm-testng)**<br>
-Examples showing how to use some [JVM annotations](https://github.com/quick-perf/doc/wiki/JVM-annotations) together with JUnit 5.
+Examples showing how to use some [JVM annotations](https://github.com/quick-perf/doc/wiki/JVM-annotations) together with TestNG.
 
 * **[springboot-junit4](springboot-junit4)**<br>
 This Spring Boot project illustrates how to use QuickPerf with JUnit 4. 
