@@ -6,7 +6,6 @@
 
 This repository contains several projects showing how to use **[QuickPerf](https://github.com/quick-perf/quickperf)** with various frameworks (JUnit 4, JUnit 5, TestNG, Spring Boot, Micronaut, ...).
 
-# 🚩 Table of contents
 [How to run the examples](#How-to-run-the-examples) <br><br>
 [JVM annotations](#JVM-annotations) <br><br>
 [Spring Boot](#Spring-Boot) <br><br>
