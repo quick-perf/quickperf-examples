@@ -26,11 +26,6 @@ public class JvmAnnotationsJunit5Test {
 
     @MeasureHeapAllocation
     //@ExpectMaxHeapAllocation(value = 440, unit = AllocationUnit.BYTE)
-    @JvmOptions("-XX:+UseCompressedOops -XX:+UseCompressedClassPointers")
-    // Allocation value depends on UseCompressedOops and UseCompressedClassPointers.
-    // QuickPerf works with JDK >= 7u40 where UseCompressedOops is enabled by default.
-    // UseCompressedClassPointers was introduced in JDK 8 and is
-    // enabled by default.
     @Test
     public void an_array_list_with_size_100_should_allocate_440_bytes() {
         // java.util.ArrayList: 24 bytes
