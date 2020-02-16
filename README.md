@@ -34,7 +34,7 @@ You can now execute the test methods from your IDE.
 
 ## JVM annotations
 
-The documentation of JVM annotation is [here](https://github.com/quick-perf/doc/wiki/JVM-annotations).
+The documentation of JVM annotations is [here](https://github.com/quick-perf/doc/wiki/JVM-annotations).
 
 **[jvm-junit4](jvm-junit4)**<br>
 Examples showing how to use some JVM annotations with **JUnit 4**.
