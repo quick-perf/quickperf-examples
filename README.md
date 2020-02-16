@@ -14,11 +14,21 @@ This repository contains several projects showing how to use **[QuickPerf](https
 
 ## How to run the examples
 Execute the following command lines:
+
+*Windows*
 ```
   git clone https://github.com/quick-perf/quickperf-examples.git
   cd quickperf-examples
-  mvn compile
+  mvnw.cmd compile
 ```
+
+*Mac or Linux or Windows with Git Bash*
+```
+  git clone https://github.com/quick-perf/quickperf-examples.git
+  cd quickperf-examples
+  ./mvnw clean install compile
+```
+
 Import the _quickperf-examples_ project in your IDE.
 
 You can now execute the test methods from your IDE.
