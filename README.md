@@ -9,7 +9,8 @@ This repository contains several projects showing how to use **[QuickPerf](https
 [How to run the examples](#How-to-run-the-examples) <br><br>
 [JVM annotations](#JVM-annotations) <br><br>
 [Spring Boot](#Spring-Boot) <br><br>
-[Micronaut](#Micronaut)
+[Micronaut](#Micronaut) <br><br>
+[Quarkus](#Quarkus)
 
 ## How to run the examples
 Execute the following command lines:
