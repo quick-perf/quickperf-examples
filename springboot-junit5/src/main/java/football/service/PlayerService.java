@@ -1,4 +1,3 @@
-package football.service;
 /*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -11,6 +10,7 @@ package football.service;
  *
  * Copyright 2020-2020 the original author or authors.
  */
+package football.service;
 
 import football.dto.PlayerWithTeamName;
 import football.entity.Player;

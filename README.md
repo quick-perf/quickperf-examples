@@ -46,6 +46,19 @@ Examples showing how to use some JVM annotations with **JUnit 5**.
 **[jvm-testng](jvm-testng)**<br>
 Examples showing how to use some JVM annotations with **TestNG**.
 
+## Hibernate without Spring
+
+The documentation of SQL annotations is [here](https://github.com/quick-perf/doc/wiki/SQL-annotations).
+
+**[hibernate-junit4](hibernate-junit4)**
+Examples showing how to use some SQL annotations with *Hibernate* and **JUnit 4**.
+
+**[hibernate-junit5](hibernate-junit5)**
+Examples showing how to use some SQL annotations with *Hibernate* and **JUnit 5**.
+
+**[hibernate-testng](hibernate-testng)**
+Examples showing how to use some SQL annotations with *Hibernate* and **TestNG**.
+
 ## Spring Boot
 **[springboot-junit4](springboot-junit4)**<br>
 This Spring Boot project illustrates how to use QuickPerf with **JUnit 4**. 

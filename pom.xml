@@ -35,6 +35,9 @@
         <module>springboot-junit5</module>
         <module>micronaut-hibernate-jpa</module>
 	    <module>quarkus</module>
+        <module>hibernate-junit4</module>
+        <module>hibernate-junit5</module>
+        <module>hibernate-testng</module>
     </modules>
 
 </project>

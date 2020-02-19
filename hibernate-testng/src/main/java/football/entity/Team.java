@@ -10,17 +10,38 @@
  *
  * Copyright 2020-2020 the original author or authors.
  */
-package football.repository;
 
-import football.entity.Player;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+package football.entity;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-@Repository
-public interface PlayerRepository extends JpaRepository<Player, Long> {
+@Entity
+public class Team implements Serializable {
 
-    List<Player> findAll();
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+    private String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }
