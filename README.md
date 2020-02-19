@@ -8,6 +8,7 @@ This repository contains several projects showing how to use **[QuickPerf](https
 
 [How to run the examples](#How-to-run-the-examples) <br><br>
 [JVM annotations](#JVM-annotations) <br><br>
+[Hibernate without Spring](#Hibernate-without-Spring) <br><br>
 [Spring Boot](#Spring-Boot) <br><br>
 [Micronaut](#Micronaut) <br><br>
 [Quarkus](#Quarkus)
@@ -50,13 +51,13 @@ Examples showing how to use some JVM annotations with **TestNG**.
 
 The documentation of SQL annotations is [here](https://github.com/quick-perf/doc/wiki/SQL-annotations).
 
-**[hibernate-junit4](hibernate-junit4)**
+**[hibernate-junit4](hibernate-junit4)**<br>
 Examples showing how to use some SQL annotations with *Hibernate* and **JUnit 4**.
 
-**[hibernate-junit5](hibernate-junit5)**
+**[hibernate-junit5](hibernate-junit5)**<br>
 Examples showing how to use some SQL annotations with *Hibernate* and **JUnit 5**.
 
-**[hibernate-testng](hibernate-testng)**
+**[hibernate-testng](hibernate-testng)**<br>
 Examples showing how to use some SQL annotations with *Hibernate* and **TestNG**.
 
 ## Spring Boot
