@@ -32,7 +32,17 @@ public class PlayerServiceTest {
     @Autowired
     private PlayerService playerService;
 
-    @ExpectSelect(1)
+    /*
+    This test method is not annotated with a QuickPerf annotation. However, it will
+    fail because N+1 select is detected from disableSameSelectTypesWithDifferentParams
+    defined in org.quickperf.QuickPerfConfiguration class.
+
+    You can use @FunctionalIteration or @DisableQuickPerf to disable QuickPerf
+    features and focus on functional behavior (not performance behavior) in a first
+    step. In a second step, you can remove @FunctionalIteration or @DisableQuickPerf
+    to evaluate some performance properties. We recommend to do one step at a time.
+    */
+    //@FunctionalIteration //Uncomment this line to disable QuickPerf features
     @Test
     public void should_find_all_players() {
 
