@@ -83,7 +83,7 @@ public class HibernateJUnit4Test {
     //
     // With QuickPerf, you can easily detect that the same SELECT statements with different
     // values are executed, allowing to catch N+1 selects. We are going to see this in the
-    // example.
+    // next example.
 
     //-------------------------------------------------------------------------------------
 
