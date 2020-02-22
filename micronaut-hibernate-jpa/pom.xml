@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.quickperf</groupId>
-    <artifactId>quick-perf-micronaut-hibernate-jpa-example</artifactId>
+    <artifactId>micronaut-hibernate-jpa</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
