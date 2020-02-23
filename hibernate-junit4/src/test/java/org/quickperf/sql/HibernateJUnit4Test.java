@@ -90,7 +90,7 @@ public class HibernateJUnit4Test {
     /* SECOND TYPE OF N+1 SELECT
 
     This test method is not annotated with a QuickPerf annotation. However, it will
-    fail because N+1 select is detected from a global annotation defined in
+    fail because a N+1 select is detected from a global annotation defined in
     org.quickperf.QuickPerfConfiguration class: disableSameSelectTypesWithDifferentParams
     Global apply on each test method.
 
@@ -123,13 +123,8 @@ public class HibernateJUnit4Test {
     are un-respected. In order to do one step at a time, you can temporarily disable global
     annotations by applying @FunctionalIteration or @DisableQuickPerf or @DisableGlobalAnnotations
     at method level.
-
-    You can use @FunctionalIteration or @DisableQuickPerf to disable QuickPerf
-    features and focus on functional behavior (not performance behavior) in a first
-    step. In a second step, you can remove @FunctionalIteration or @DisableQuickPerf
-    to evaluate some performance properties. We recommend to do one step at a time.
     */
-    //@FunctionalIteration //Uncomment this line to disable QuickPerf features
+    //@FunctionalIteration //Uncomment this line to temporarily disable QuickPerf features
     @Test
     public void should_find_all_players_with_their_team_name() {
 
