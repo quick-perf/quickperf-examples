@@ -14,6 +14,8 @@ This repository contains several projects showing how to use **[QuickPerf](https
 [Quarkus](#Quarkus)
 
 ## How to run the examples
+*[QuickPerf artifacts are published to Maven central](https://search.maven.org/search?q=org.quickperf).*
+
 Execute the following command lines:
 
 *Windows*
