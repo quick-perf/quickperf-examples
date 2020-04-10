@@ -25,6 +25,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -47,17 +49,20 @@ public class PlayerControllerTest {
     @ExpectSelect(1)
     @HeapSize(value = 50, unit = AllocationUnit.MEGA_BYTE)
     @Test
-    public void should_find_all_players() {
+    public void should_get_all_players() {
 
         // GIVEN
         String url = "http://localhost:" + port + "/players";
 
         // WHEN
-        ResponseEntity<List> playersResponseEntity = restTemplate.getForEntity(url, List.class);
-        List<PlayerWithTeamName> players = playersResponseEntity.getBody();
+        ParameterizedTypeReference<List<PlayerWithTeamName>> paramType = new ParameterizedTypeReference<List<PlayerWithTeamName>>() {};
+        ResponseEntity<List<PlayerWithTeamName>> playersResponseEntity = restTemplate
+                .exchange(url, HttpMethod.GET, null, paramType);
 
         // THEN
         assertThat(playersResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        List<PlayerWithTeamName> players = playersResponseEntity.getBody();
         assertThat(players).hasSize(2);
 
     }
