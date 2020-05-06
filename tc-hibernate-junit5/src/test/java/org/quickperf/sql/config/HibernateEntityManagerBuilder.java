@@ -121,14 +121,14 @@ public class HibernateEntityManagerBuilder {
 
             Properties config = new Properties();
 
-            config.put("hibernate.show_sql", true);
+            config.put("hibernate.show_sql", false);
             config.put("hibernate.format_sql", false);
 
             config.put("hibernate.jdbc.batch_size", 25);
 
 
             config.setProperty("hibernate.hbm2ddl.auto", "create");
-            config.setProperty("hibernate.hbm2ddl.import_files", "resources/import.sql");
+            config.setProperty("hibernate.hbm2ddl.import_files", "import.sql");
             config.setProperty("hibernate.dialect", "org.hibernate.dialect.MariaDB103Dialect");
 
             return config;

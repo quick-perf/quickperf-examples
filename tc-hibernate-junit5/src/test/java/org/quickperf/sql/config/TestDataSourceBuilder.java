@@ -20,7 +20,6 @@ import javax.sql.DataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class TestDataSourceBuilder {
 
@@ -35,7 +34,7 @@ public class TestDataSourceBuilder {
     public DataSource build(final JdbcDatabaseContainer jdbc) {
         final BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(jdbc.getDriverClassName());
-        dataSource.setUrl(jdbc.getJdbcUrl()+"?TC_INITSCRIPT=file:src/test/resources/import.sql");
+        dataSource.setUrl(jdbc.getJdbcUrl());
         dataSource.setUsername(jdbc.getUsername());
         dataSource.setPassword(jdbc.getPassword());
         dataSource.setMaxActive(4);

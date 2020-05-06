@@ -150,14 +150,7 @@ public class HibernateJUnit5Test {
             .withDatabaseName("testcontainers")
             .withUsername("nes")
             .withPassword("quick");
-    // .withExposedPorts(5432)
-    // Below should not be used - Function is deprecated and for simplicity of test
-    // , You should override your properties at runtime
-    /*
-     * .withCreateContainerCmdModifier(cmd -> { cmd .withHostName("localhost")
-     * .withPortBindings(new PortBinding(Ports.Binding.bindPort(5432), new
-     * ExposedPort(5432))); });
-     */
+
     private EntityManager entityManager;
     {
             //db.
