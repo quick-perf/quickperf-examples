@@ -126,8 +126,7 @@ public class HibernateEntityManagerBuilder {
 
             config.put("hibernate.jdbc.batch_size", 25);
 
-
-            config.setProperty("hibernate.hbm2ddl.auto", "create");
+            config.setProperty("hibernate.hbm2ddl.auto", "create-drop");
             config.setProperty("hibernate.hbm2ddl.import_files", "import.sql");
             config.setProperty("hibernate.dialect", "org.hibernate.dialect.MariaDB103Dialect");
 
