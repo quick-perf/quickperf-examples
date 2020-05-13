@@ -16,6 +16,7 @@ package org.quickperf.quarkus.quarkustest.controller;
 import io.quarkus.test.junit.QuarkusTest;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;
+import org.quickperf.annotation.DisableGlobalAnnotations;
 import org.quickperf.junit5.QuickPerfTest;
 import org.quickperf.sql.annotation.ExpectSelect;
 
@@ -25,6 +26,8 @@ import static io.restassured.RestAssured.given;
 @QuickPerfTest
 public class PlayerControllerTest {
 
+    @DisableGlobalAnnotations // Global annotations are used in the PlayerServiceTest
+                              // They are disabled here to use explicit annotations instead
     @ExpectSelect(1)
     @Test
     public void should_find_all_players() {

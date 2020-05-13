@@ -140,9 +140,6 @@
           <systemProperties>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
           </systemProperties>
-          <!-- There will always be failures as we want to demonstrate it ... -->
-          <testFailureIgnore>true</testFailureIgnore>
-          <argLine>-Xmx64m -XX:+UseParallelGC</argLine>
         </configuration>
       </plugin>
     </plugins>
