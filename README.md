@@ -29,7 +29,7 @@ Execute the following command lines:
 ```
   git clone https://github.com/quick-perf/quickperf-examples.git
   cd quickperf-examples
-  ./mvnw clean install compile
+  ./mvnw compile
 ```
 
 Import the _quickperf-examples_ project in your IDE.
