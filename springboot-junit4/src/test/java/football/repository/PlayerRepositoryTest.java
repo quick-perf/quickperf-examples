@@ -13,7 +13,7 @@
 
 package football.repository;
 
-import football.QuickPerfPerBeanConfig;
+import football.QuickPerfBeanConfig;
 import football.entity.Player;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +28,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(QuickPerfSpringRunner.class)
-@Import(QuickPerfPerBeanConfig.class)
+@Import(QuickPerfBeanConfig.class)
 @DataJpaTest()
 public class PlayerRepositoryTest {
 
