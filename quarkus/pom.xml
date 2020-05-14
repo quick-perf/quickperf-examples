@@ -46,48 +46,20 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- force JUnit version because Quarkus still depends on 5.5-->
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.6.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <dependency>
         <groupId>org.quickperf</groupId>
         <artifactId>quick-perf-bom</artifactId>
         <version>1.0.0-RC6</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
-      <!-- force JUnit to 5.6 as Quarkus still depends on 5.5-->
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter</artifactId>
-        <version>5.6.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.6.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.6.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-params</artifactId>
-        <version>5.6.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-engine</artifactId>
-        <version>1.6.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-commons</artifactId>
-        <version>1.6.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-launcher</artifactId>
-        <version>1.6.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -168,9 +140,6 @@
           <systemProperties>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
           </systemProperties>
-          <!-- There will always be failures as we want to demonstrate it ... -->
-          <testFailureIgnore>true</testFailureIgnore>
-          <argLine>-Xmx64m -XX:+UseParallelGC</argLine>
         </configuration>
       </plugin>
     </plugins>

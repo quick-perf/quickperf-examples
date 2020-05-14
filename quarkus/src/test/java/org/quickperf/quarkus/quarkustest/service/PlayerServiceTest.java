@@ -17,21 +17,30 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
 import org.quickperf.quarkus.quarkustest.dto.PlayerWithTeamName;
-import org.quickperf.sql.annotation.ExpectSelect;
 
 import javax.inject.Inject;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@QuickPerfTest
 @QuarkusTest
+@QuickPerfTest
 public class PlayerServiceTest {
 
     @Inject
     PlayerService playerService;
 
-    @ExpectSelect(1)
+    /*
+    This test method is not annotated with a QuickPerf annotation. However, it will
+    fail because N+1 select is detected from disableSameSelectTypesWithDifferentParams
+    defined in org.quickperf.QuickPerfConfiguration class.
+
+    You can use @FunctionalIteration or @DisableQuickPerf to disable QuickPerf
+    features and focus on functional behavior (not performance behavior) in a first
+    step. In a second step, you can remove @FunctionalIteration or @DisableQuickPerf
+    to evaluate some performance properties. We recommend to do one step at a time.
+    */
+    //@FunctionalIteration //Uncomment this line to disable QuickPerf features
     @Test
     public void should_find_all_players_with_team_name() {
 

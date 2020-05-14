@@ -36,6 +36,9 @@ Import the _quickperf-examples_ project in your IDE.
 
 You can now execute the test methods from your IDE.
 
+Tests are skiped by default as they will all fail, if you want to execute them via Maven you need to use 
+`mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore`.
+
 ## JVM annotations
 
 The documentation of JVM annotations is [here](https://github.com/quick-perf/doc/wiki/JVM-annotations).
