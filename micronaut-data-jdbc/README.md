@@ -4,7 +4,7 @@ When launching the application, the [PlayerService.java](src/main/java/org/quick
 
 Global annotations are configured in [QuickPerfConfiguration](src/test/java/org/quickperf/QuickPerfConfiguration.java). These annotations apply on each test.
 
-For QuickPerf to be able to spy on your SQL requests, it needs a way to proxy you DataSource via [ttddyy](https://github.com/ttddyy/datasource-proxy).
+For QuickPerf to be able to spy on your SQL requests, it needs a way to proxy your DataSource via [ttddyy](https://github.com/ttddyy/datasource-proxy).
 In this example, this is done inside the [QuickperfDriver](src/test/java/org/quickperf/micronaut/micronauttest/sql/QuickperfDriver.java) SQL driver that will proxy your DataSource.
 
 This SQL driver is then used instead of your SQL driver inside the [application.yml](src/main/resources/application.yml) of your application.
