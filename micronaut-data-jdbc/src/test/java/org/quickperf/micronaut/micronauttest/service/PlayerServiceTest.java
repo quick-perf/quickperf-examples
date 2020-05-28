@@ -17,7 +17,6 @@ import io.micronaut.test.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
 import org.quickperf.micronaut.micronauttest.dto.PlayerWithTeamName;
-import org.quickperf.sql.annotation.ExpectSelect;
 
 import javax.inject.Inject;
 import java.util.List;
