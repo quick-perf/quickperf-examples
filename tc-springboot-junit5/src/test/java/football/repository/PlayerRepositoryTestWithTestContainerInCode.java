@@ -10,34 +10,47 @@
  *
  * Copyright 2020-2020 the original author or authors.
  */
-
 package football.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
+import org.junit.ClassRule;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
 import org.quickperf.sql.annotation.ExpectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.support.TestPropertySourceUtils;
+import org.testcontainers.containers.MariaDBContainer;
 
 import football.QuickPerfBeanConfig;
 import football.entity.Player;
 
+/**
+ * This Test is keept in order to show how to overwrite testcontainer from spring-boot
+ */
 @DataJpaTest()
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@ContextConfiguration(initializers = PlayerRepositoryTestWithTestContainerInCode.Initializer.class)
 @Import(QuickPerfBeanConfig.class)
 @QuickPerfTest
-public class PlayerRepositoryTest {
 
+public class PlayerRepositoryTestWithTestContainerInCode {
     @Autowired
     private PlayerRepository playerRepository;
 
-    /* FIRST TYPE OF N+1 SELECT
+    @ClassRule
+    public static MariaDBContainer db = new MariaDBContainer("mariadb:10.5.3");
+
+
+     /* FIRST TYPE OF N+1 SELECT
     We expect to retrieve all the players from the database with one SELECT statement.
     This is verified with the help of an @ExpectSelect(1) QuickPerf annotation added on
     test method.
@@ -62,5 +75,17 @@ public class PlayerRepositoryTest {
         assertThat(players).hasSize(2);
     }
 
-
+    public static class Initializer
+        implements ApplicationContextInitializer<ConfigurableApplicationContext> {
+        public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
+            db.start();
+            TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.datasource.url=" + db.getJdbcUrl());
+            TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.datasource.username=" + db.getUsername());
+            TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.datasource.password=" + db.getPassword());
+            TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.datasource.driver-class-name=" + db.getDriverClassName());
+            //TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.jpa.properties.hibernate.show_sql=true");
+            TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.jpa.hibernate.ddl-auto=create-drop");
+            //TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl");
+        }
+    }
 }
