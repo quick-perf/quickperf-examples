@@ -35,6 +35,43 @@ public class PlayerControllerWithMockMvcTest {
     @Autowired
     private MockMvc mockMvc;
 
+    /*
+    This test is annoted with @ExpectSelect(1), that is to say that this test should only generate 1 sql 
+    request.
+
+    This type of N+1 SELECT can't be solved by configuring a LAZY fetch type only it has to use 
+    @EntityGraph in order to fetch an load accordinly
+    https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.entity-graph
+.
+    To fix this N+1 SELECT, you can use should:
+
+    1. update Player with NamedEntityGraph
+    ...
+        @Entity
+        @NamedEntityGraph(name = "graph.Player.team", 
+            attributeNodes = @NamedAttributeNode("team"))
+        public class Player implements Serializable {
+        ...
+            @ManyToOne(targetEntity = Team.class, fetch = FetchType.LAZY)
+            private Team team;
+        ...
+        }
+    2 add EntityGraph to PlayerRepository
+    ...
+       @Repository
+        public interface PlayerRepository extends JpaRepository<Player, Long> {
+            @EntityGraph(value = "GroupInfo.detail", type = EntityGraphType.LOAD)
+            List<Player> findAll();
+        }
+
+    These solutions are suggested by the QuickPerf error report.
+    Global annotations apply on each test. In the case where you are developing a new feature,
+    perhaps with the help of TDD, your test may fail because the business property is
+    un-respected but also because some performance properties checked by global annotations
+    are un-respected. In order to do one step at a time, you can temporarily disable global
+    annotations by applying @FunctionalIteration or @DisableQuickPerf or @DisableGlobalAnnotations
+    at method level.
+     */
     @ExpectSelect(1)
     @Test
     public void should_find_all_players() throws Exception {
