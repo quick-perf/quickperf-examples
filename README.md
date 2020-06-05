@@ -41,20 +41,20 @@ Tests are skiped by default as they will all fail, if you want to execute them v
 
 ## JVM annotations
 
-The documentation of JVM annotations is [here](https://github.com/quick-perf/doc/wiki/JVM-annotations).
+📙 [JVM annotations](https://github.com/quick-perf/doc/wiki/JVM-annotations)
 
-**[jvm-junit4](jvm-junit4)**<br>
+**[jvm-junit4](jvm-junit4/src/test/java/org/quickperf)**<br>
 Examples showing how to use some **JVM annotations** with **JUnit 4**.
 
-**[jvm-junit5](jvm-junit5)**<br>
+**[jvm-junit5](jvm-junit5/src/test/java/org/quickperf)**<br>
 Examples showing how to use some **JVM annotations** with **JUnit 5**.
 
-**[jvm-testng](jvm-testng)**<br>
+**[jvm-testng](jvm-testng/src/test/java/org/quickperf)**<br>
 Examples showing how to use some **JVM annotations** with **TestNG**.
 
 ## Hibernate without Spring
 
-The documentation of SQL annotations is [here](https://github.com/quick-perf/doc/wiki/SQL-annotations).
+📙 [SQL annotations](https://github.com/quick-perf/doc/wiki/SQL-annotations)
 
 **[hibernate-junit4](hibernate-junit4)**<br>
 Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 4**.
