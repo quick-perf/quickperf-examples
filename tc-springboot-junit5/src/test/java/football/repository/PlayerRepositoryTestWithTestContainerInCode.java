@@ -29,6 +29,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.TestPropertySourceUtils;
 import org.testcontainers.containers.MariaDBContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import football.QuickPerfBeanConfig;
 import football.entity.Player;
@@ -36,18 +38,18 @@ import football.entity.Player;
 /**
  * This Test is keept in order to show how to overwrite testcontainer from spring-boot
  */
+@Testcontainers
 @DataJpaTest()
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ContextConfiguration(initializers = PlayerRepositoryTestWithTestContainerInCode.Initializer.class)
 @Import(QuickPerfBeanConfig.class)
 @QuickPerfTest
-
 public class PlayerRepositoryTestWithTestContainerInCode {
     @Autowired
     private PlayerRepository playerRepository;
 
-    @ClassRule
-    public static MariaDBContainer db = new MariaDBContainer("mariadb:10.5.3");
+    //@Container
+    public static MariaDBContainer db = new MariaDBContainer<>("mariadb:10.5.3");
 
 
      /* FIRST TYPE OF N+1 SELECT
@@ -78,6 +80,8 @@ public class PlayerRepositoryTestWithTestContainerInCode {
     public static class Initializer
         implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
+            //For some reason @Container rise a ..Exception: Connection reset
+            //removing the annotation and add .start() is a workaround
             db.start();
             TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.datasource.url=" + db.getJdbcUrl());
             TestPropertySourceUtils.addInlinedPropertiesToEnvironment(configurableApplicationContext, "spring.datasource.username=" + db.getUsername());
