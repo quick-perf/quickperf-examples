@@ -11,6 +11,11 @@ out
 .project
 .settings
 
+# VSCode
+*.vscode/
+*.factorypath
+
+
 # Micronaut
 micronaut-junit5-example/dependency-reduced-pom.xml
 
