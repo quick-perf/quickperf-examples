@@ -40,12 +40,13 @@
         <module>springboot-junit4</module>
         <module>springboot-junit5</module>
         <module>micronaut-hibernate-jpa</module>
-        <module>micronaut-data-jdbc</module>
-	    <module>quarkus</module>
+        <module>tc-springboot-junit5</module>
+        <module>quarkus</module>
         <module>hibernate-junit4</module>
         <module>hibernate-junit5</module>
         <module>hibernate-testng</module>
-        <module>tc-springboot-junit5</module>
+        <module>tc-hibernate-junit5</module>
+       <module>tc-springboot-junit5</module>
     </modules>
 
 </project>
