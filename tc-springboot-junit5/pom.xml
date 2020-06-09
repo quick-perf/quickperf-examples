@@ -114,7 +114,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
@@ -134,7 +133,20 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+    </build>
     <profiles>
         <profile>
             <id>mariadb</id>
@@ -142,7 +154,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <spring.profiles.active></spring.profiles.active>
+                <activatedProperties>default</activatedProperties>
             </properties>
             <dependencies>
                 <dependency>
@@ -161,7 +173,7 @@
         <profile>
             <id>postgresql</id>
             <properties>
-                <spring.profiles.active>postgresql</spring.profiles.active>
+                <activatedProperties>postgresql</activatedProperties>
             </properties>
             <dependencies>
                 <dependency>
@@ -193,7 +205,7 @@
         <profile>
             <id>mysql</id>
             <properties>
-                <spring.profiles.active>mysql</spring.profiles.active>
+                <activatedProperties>mysql</activatedProperties>
             </properties>
             <dependencies>
                 <dependency>
