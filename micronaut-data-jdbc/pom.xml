@@ -16,6 +16,7 @@
     <jdk.version>8</jdk.version>
     <maven.compiler.target>${jdk.version}</maven.compiler.target>
     <maven.compiler.source>${jdk.version}</maven.compiler.source>
+    <maven.test.skip>true</maven.test.skip>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <micronaut.version>2.0.0.M3</micronaut.version>
@@ -40,7 +41,7 @@
       <dependency>
         <groupId>org.quickperf</groupId>
         <artifactId>quick-perf-bom</artifactId>
-        <version>1.0.0-RC6</version>
+        <version>1.0.0-RC7</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
