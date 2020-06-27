@@ -41,17 +41,103 @@ components:
         name: JAVA_TOOL_OPTIONS
 
 commands:
- 
-  - name: maven test quarkus PlayerControllerTest
+
+  - name: JVM JUnit 4
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
-        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f quarkus/pom.xml -Dtest=org.quickperf.quarkus.quarkustest.controller.PlayerControllerTest
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit4/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit4Test
+
+  - name: JVM JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit5/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit5Test
+
+  - name: JVM TestNG
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-testng/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsTestNGTest
+
+  - name: Hibernate JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-junit4/pom.xml -Dtest=org.quickperf.sql.HibernateJUnit4Test
+
+  - name: Hibernate JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-junit5/pom.xml -Dtest=org.quickperf.sql.HibernateJUnit5Test
+
+  - name: Hibernate TestNG
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-testng/pom.xml -Dtest=org.quickperf.sql.HibernateTestNGTest
+
+  - name: Spring Boot Contoller JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.controller.PlayerControllerTest
+
+  - name: Spring Boot Service JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.service.PlayerServiceTest
+
+  - name: Spring Boot Repository JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+
+  - name: Spring Boot Contoller JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.controller.PlayerControllerTest
+
+  - name: Spring Boot Service JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.service.PlayerServiceTest
+
+  - name: Spring Boot Repository JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+          command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+
+  - name: Micronaut Data N+1 select
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f micronaut-data-jdbc/pom.xml -Dtest=org.quickperf.micronaut.micronauttest.service.PlayerServiceTest
         component: maven
 
-  - name: maven test quarkus PlayerServiceTest
+  - name: Micronaut Data HTTP
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f micronaut-data-jdbc/pom.xml -Dtest=org.quickperf.micronaut.micronauttest.controller.PlayerControllerTest
+        component: maven
+
+  - name: Quarkus N+1 select
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f quarkus/pom.xml -Dtest=org.quickperf.quarkus.quarkustest.service.PlayerServiceTest
+        component: maven
+
+  - name: Quarkus http test
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f quarkus/pom.xml -Dtest=org.quickperf.quarkus.quarkustest.controller.PlayerControllerTest
         component: maven
