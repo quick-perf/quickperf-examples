@@ -3,6 +3,7 @@
 </div>
 
 # QuickPerf examples
+[![try it online](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
 
 This repository contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
 
