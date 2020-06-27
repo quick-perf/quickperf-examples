@@ -1,0 +1,62 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: quickperf-example-
+
+components:
+  - id: redhat/java11/latest
+    type: chePlugin
+
+  - id: ms-vscode/vscode-github-pullrequest/latest
+    type: chePlugin
+
+  - mountSources: true
+    memoryLimit: 512Mi
+    type: dockerimage
+    volumes:
+      - name: m2
+        containerPath: /home/user/.m2
+    image: 'quay.io/eclipse/che-java11-maven:7.14.3'
+    alias: maven
+    env:
+      - value: ''
+        name: MAVEN_CONFIG
+      - value: >-
+          -XX:MaxRAMPercentage=50 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10
+          -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4
+          -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true
+          -Xms20m -Djava.security.egd=file:/dev/./urandom -Duser.home=/home/user
+        name: MAVEN_OPTS
+      - value: >-
+          -XX:MaxRAMPercentage=50 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10
+          -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4
+          -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true
+          -Xms20m -Djava.security.egd=file:/dev/./urandom
+        name: JAVA_OPTS
+      - value: >-
+          -XX:MaxRAMPercentage=50 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10
+          -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4
+          -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true
+          -Xms20m -Djava.security.egd=file:/dev/./urandom
+        name: JAVA_TOOL_OPTIONS
+
+commands:
+  - name: maven compile
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn compile
+        component: maven
+
+  - name: maven test quarkus PlayerControllerTest
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f quarkus/pom.xml -Dtest=org.quickperf.quarkus.quarkustest.controller.PlayerControllerTest
+        component: maven
+
+  - name: maven test quarkus PlayerServiceTest
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f quarkus/pom.xml -Dtest=org.quickperf.quarkus.quarkustest.service.PlayerServiceTest
+        component: maven
