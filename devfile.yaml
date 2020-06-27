@@ -47,72 +47,84 @@ commands:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit4/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit4Test
+        component: maven
 
   - name: JVM JUnit 5
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit5/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit5Test
+        component: maven
 
   - name: JVM TestNG
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-testng/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsTestNGTest
+        component: maven
 
   - name: Hibernate JUnit 4
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-junit4/pom.xml -Dtest=org.quickperf.sql.HibernateJUnit4Test
+        component: maven
 
   - name: Hibernate JUnit 5
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-junit5/pom.xml -Dtest=org.quickperf.sql.HibernateJUnit5Test
+        component: maven
 
   - name: Hibernate TestNG
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-testng/pom.xml -Dtest=org.quickperf.sql.HibernateTestNGTest
+        component: maven
 
   - name: Spring Boot Contoller JUnit 4
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.controller.PlayerControllerTest
+        component: maven
 
   - name: Spring Boot Service JUnit 4
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.service.PlayerServiceTest
+        component: maven
 
   - name: Spring Boot Repository JUnit 4
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+        component: maven
 
   - name: Spring Boot Contoller JUnit 5
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.controller.PlayerControllerTest
+        component: maven
 
   - name: Spring Boot Service JUnit 5
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.service.PlayerServiceTest
+        component: maven
 
   - name: Spring Boot Repository JUnit 5
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+        component: maven
 
   - name: Micronaut Data N+1 select
     actions:
