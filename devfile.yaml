@@ -40,13 +40,7 @@ components:
         name: JAVA_TOOL_OPTIONS
 
 commands:
-  - name: maven compile
-    actions:
-      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
-        type: exec
-        command: mvn compile
-        component: maven
-
+ 
   - name: maven test quarkus PlayerControllerTest
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
