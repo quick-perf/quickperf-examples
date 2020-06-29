@@ -1,5 +1,7 @@
-FROM quay.io/eclipse/che-java11-maven as builder
-COPY --chown=1001:1001 quickperf-examples /quickperf-examples
+FROM quay.io/eclipse/che-java11-maven:nightly as builder
+ENV MAVEN_OPTS='-Dmaven.repo.local=/home/user/.m2/repository' \
+    MAVEN_CONFIG='-Duser.home=/home/user'
+COPY . /quickperf-examples/
 WORKDIR /quickperf-examples
 RUN env && \
     mvn dependency:go-offline
