@@ -1,5 +1,5 @@
 FROM quay.io/eclipse/che-java11-maven:nightly as builder
-COPY --chown=1001:1001 quickperf-examples /quickperf-examples
+COPY --chown=1001:1001 . /quickperf-examples/
 WORKDIR /quickperf-examples
 RUN env && \
     mvn dependency:go-offline
