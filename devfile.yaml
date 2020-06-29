@@ -40,6 +40,15 @@ components:
           -Xms20m -Djava.security.egd=file:/dev/./urandom
         name: JAVA_TOOL_OPTIONS
 
+  - mountSources: true
+    memoryLimit: 64M
+    type: dockerimage
+    image: quay.io/quickperf/quickperf-examples-maven-data
+    alias: data
+    volumes:
+      - name: m2
+        containerPath: /work/volumes/.m2
+
 commands:
 
   - name: JVM JUnit 4
