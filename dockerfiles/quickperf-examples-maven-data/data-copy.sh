@@ -4,4 +4,4 @@ if [ ! -d /work/volumes/.m2/repository ]; then
   cp -rf /work/m2repo/* /work/volumes/.m2/repository/;
 fi
 
-tail -f /
+tail -f /dev/null
