@@ -27,7 +27,7 @@ public class JvmAnnotationsJunit5Test {
     @MeasureHeapAllocation
     //@ExpectMaxHeapAllocation(value = 440, unit = AllocationUnit.BYTE)
     @Test
-    public void an_array_list_with_size_100_should_allocate_440_bytes() {
+    public void test_method_measuring_heap_allocation() {
         // java.util.ArrayList: 24 bytes
         //            +
         //  Object[]: 16 + 100 x 4 = 416
