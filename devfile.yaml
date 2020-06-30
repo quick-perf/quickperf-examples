@@ -42,42 +42,42 @@ components:
 
 commands:
 
-  - name: JVM / JUnit 4 / JvmAnnotationsJunit4Test.java
+  - name: JvmAnnotationsJunit4Test.java
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit4/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit4Test
         component: maven
 
-  - name: JVM / JUnit 4 / @MeasureHeapAllocation / JvmAnnotationsJunit4Test.java
+  - name: JvmAnnotationsJunit4Test.java / @MeasureHeapAllocation
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit4/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit4Test#test_method_measuring_heap_allocation
         component: maven
 
-  - name: JVM / JUnit 5 / JvmAnnotationsJunit5Test.java
+  - name: JvmAnnotationsJunit5Test.java
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit5/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit5Test
         component: maven
 
-  - name: JVM / JUnit 5 / @MeasureHeapAllocation / JvmAnnotationsJunit5Test.java
+  - name: JvmAnnotationsJunit5Test.java / @MeasureHeapAllocation
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit5/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit5Test#test_method_measuring_heap_allocation
         component: maven
 
-  - name: JVM / TestNG / JvmAnnotationsTestNGTest.java
+  - name: JvmAnnotationsTestNGTest.java
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-testng/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsTestNGTest
         component: maven
 
-  - name: JVM / TestNG / @MeasureHeapAllocation / JvmAnnotationsTestNGTest.java
+  - name: JvmAnnotationsTestNGTest.java / @MeasureHeapAllocation
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
