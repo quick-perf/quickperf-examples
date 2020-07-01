@@ -1,23 +1,28 @@
 apiVersion: 1.0.0
+
 metadata:
-  generateName: quickperf-example-
+  generateName: quickperf-examples-
+
 attributes:
   persistVolumes: 'false'
+
 components:
+
   - id: redhat/java11/latest
     type: chePlugin
 
   - id: ms-vscode/vscode-github-pullrequest/latest
     type: chePlugin
 
-  - mountSources: true
-    memoryLimit: 512Mi
+
+  - alias: maven
+    image: 'quay.io/eclipse/che-java11-maven:7.14.3'
     type: dockerimage
+    mountSources: true
+    memoryLimit: 512Mi
     volumes:
       - name: m2
         containerPath: /home/user/.m2
-    image: 'quay.io/eclipse/che-java11-maven:7.14.3'
-    alias: maven
     env:
       - value: ''
         name: MAVEN_CONFIG
@@ -39,6 +44,15 @@ components:
           -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true
           -Xms20m -Djava.security.egd=file:/dev/./urandom
         name: JAVA_TOOL_OPTIONS
+
+  - alias: data
+    image: quay.io/quickperf/quickperf-examples-maven-data:latest
+    type: dockerimage
+    memoryLimit: 64M
+    volumes:
+      - name: m2
+        containerPath: /work/volumes/.m2
+
 
 commands:
 
