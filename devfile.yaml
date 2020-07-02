@@ -1,0 +1,190 @@
+apiVersion: 1.0.0
+
+metadata:
+  generateName: quickperf-examples-
+
+attributes:
+  persistVolumes: 'false'
+
+components:
+
+  - id: redhat/java11/latest
+    type: chePlugin
+
+  - id: ms-vscode/vscode-github-pullrequest/latest
+    type: chePlugin
+
+
+  - alias: maven
+    image: 'quay.io/eclipse/che-java11-maven:7.14.3'
+    type: dockerimage
+    mountSources: true
+    memoryLimit: 512Mi
+    volumes:
+      - name: m2
+        containerPath: /home/user/.m2
+    env:
+      - value: ''
+        name: MAVEN_CONFIG
+      - value: >-
+          -XX:MaxRAMPercentage=50 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10
+          -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4
+          -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true
+          -Xms20m -Djava.security.egd=file:/dev/./urandom -Duser.home=/home/user
+        name: MAVEN_OPTS
+      - value: >-
+          -XX:MaxRAMPercentage=50 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10
+          -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4
+          -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true
+          -Xms20m -Djava.security.egd=file:/dev/./urandom
+        name: JAVA_OPTS
+      - value: >-
+          -XX:MaxRAMPercentage=50 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10
+          -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4
+          -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true
+          -Xms20m -Djava.security.egd=file:/dev/./urandom
+        name: JAVA_TOOL_OPTIONS
+
+  - alias: data
+    image: quay.io/quickperf/quickperf-examples-maven-data:latest
+    type: dockerimage
+    memoryLimit: 64M
+    volumes:
+      - name: m2
+        containerPath: /work/volumes/.m2
+
+
+commands:
+
+  - name: JvmAnnotationsJunit4Test.java
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit4/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit4Test
+        component: maven
+
+  - name: JvmAnnotationsJunit4Test.java / @MeasureHeapAllocation
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit4/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit4Test#test_method_measuring_heap_allocation
+        component: maven
+
+  - name: JvmAnnotationsJunit5Test.java
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit5/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit5Test
+        component: maven
+
+  - name: JvmAnnotationsJunit5Test.java / @MeasureHeapAllocation
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-junit5/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsJunit5Test#test_method_measuring_heap_allocation
+        component: maven
+
+  - name: JvmAnnotationsTestNGTest.java
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-testng/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsTestNGTest
+        component: maven
+
+  - name: JvmAnnotationsTestNGTest.java / @MeasureHeapAllocation
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f jvm-testng/pom.xml -Dtest=org.quickperf.jvm.JvmAnnotationsTestNGTest#test_method_measuring_heap_allocation
+        component: maven
+
+  - name: Hibernate JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-junit4/pom.xml -Dtest=org.quickperf.sql.HibernateJUnit4Test
+        component: maven
+
+  - name: Hibernate JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-junit5/pom.xml -Dtest=org.quickperf.sql.HibernateJUnit5Test
+        component: maven
+
+  - name: Hibernate TestNG
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f hibernate-testng/pom.xml -Dtest=org.quickperf.sql.HibernateTestNGTest
+        component: maven
+
+  - name: Spring Boot Contoller JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.controller.PlayerControllerTest
+        component: maven
+
+  - name: Spring Boot Service JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.service.PlayerServiceTest
+        component: maven
+
+  - name: Spring Boot Repository JUnit 4
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit4/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+        component: maven
+
+  - name: Spring Boot Contoller JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.controller.PlayerControllerTest
+        component: maven
+
+  - name: Spring Boot Service JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.service.PlayerServiceTest
+        component: maven
+
+  - name: Spring Boot Repository JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+        component: maven
+
+  - name: Micronaut Data N+1 select
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f micronaut-data-jdbc/pom.xml -Dtest=org.quickperf.micronaut.micronauttest.service.PlayerServiceTest
+        component: maven
+
+  - name: Micronaut Data HTTP
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f micronaut-data-jdbc/pom.xml -Dtest=org.quickperf.micronaut.micronauttest.controller.PlayerControllerTest
+        component: maven
+
+  - name: Quarkus N+1 select
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f quarkus/pom.xml -Dtest=org.quickperf.quarkus.quarkustest.service.PlayerServiceTest
+        component: maven
+
+  - name: Quarkus http test
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f quarkus/pom.xml -Dtest=org.quickperf.quarkus.quarkustest.controller.PlayerControllerTest
+        component: maven

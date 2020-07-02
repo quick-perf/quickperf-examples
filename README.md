@@ -3,8 +3,9 @@
 </div>
 
 # QuickPerf examples
+[![try it online](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
 
-This repository contains several projects showing how to use **[QuickPerf](https://github.com/quick-perf/doc/wiki/QuickPerf)** with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
+This repository contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
 
 [How to run the examples](#How-to-run-the-examples) <br><br>
 [JVM annotations](#JVM-annotations) <br><br>
@@ -41,20 +42,16 @@ Tests are skiped by default as they will all fail, if you want to execute them v
 
 ## JVM annotations
 
-The documentation of JVM annotations is [here](https://github.com/quick-perf/doc/wiki/JVM-annotations).
-
-**[jvm-junit4](jvm-junit4)**<br>
+**[jvm-junit4](jvm-junit4/src/test/java/org/quickperf/jvm)**<br>
 Examples showing how to use some **JVM annotations** with **JUnit 4**.
 
-**[jvm-junit5](jvm-junit5)**<br>
+**[jvm-junit5](jvm-junit5/src/test/java/org/quickperf/jvm)**<br>
 Examples showing how to use some **JVM annotations** with **JUnit 5**.
 
-**[jvm-testng](jvm-testng)**<br>
+**[jvm-testng](jvm-testng/src/test/java/org/quickperf/jvm)**<br>
 Examples showing how to use some **JVM annotations** with **TestNG**.
 
 ## Hibernate without Spring
-
-The documentation of SQL annotations is [here](https://github.com/quick-perf/doc/wiki/SQL-annotations).
 
 **[hibernate-junit4](hibernate-junit4)**<br>
 Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 4**.
