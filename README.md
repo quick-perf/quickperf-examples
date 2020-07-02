@@ -69,6 +69,9 @@ This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 4**.
 **[springboot-junit5](springboot-junit5)**<br>
 This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5**. 
 
+**[tc-springboot-junit5](tc-springboot-junit5)**<br>
+This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5** and test containers. 
+
 ## Micronaut
 **[micronaut-hibernate-jpa](micronaut-hibernate-jpa)**<br>
 This **Micronaut/Hibernate/JPA** project illustrates how to use QuickPerf with **JUnit 5**. 
