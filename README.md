@@ -5,7 +5,7 @@
 # QuickPerf examples
 [![try it online](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
 
-This repository contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
+This repository contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Testcontainers*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
 
 [How to run the examples](#How-to-run-the-examples) <br><br>
 [JVM annotations](#JVM-annotations) <br><br>
@@ -69,8 +69,8 @@ This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 4**.
 **[springboot-junit5](springboot-junit5)**<br>
 This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5**. 
 
-**[tc-springboot-junit5](tc-springboot-junit5)**<br>
-This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5** and test containers. 
+**[testcontainers-springboot-junit5](tc-springboot-junit5)**<br>
+This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5** and [Testcontainers](https://www.testcontainers.org). 
 
 ## Micronaut
 **[micronaut-hibernate-jpa](micronaut-hibernate-jpa)**<br>
