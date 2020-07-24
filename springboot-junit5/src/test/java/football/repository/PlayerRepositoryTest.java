@@ -15,8 +15,10 @@ package football.repository;
 
 import football.QuickPerfBeanConfig;
 import football.entity.Player;
+import football.entity.Team;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
+import org.quickperf.sql.annotation.ExpectJdbcBatching;
 import org.quickperf.sql.annotation.ExpectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -24,6 +26,7 @@ import org.springframework.context.annotation.Import;
 
 import java.util.List;
 
+import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Import(QuickPerfBeanConfig.class)
@@ -34,6 +37,9 @@ public class PlayerRepositoryTest {
     @Autowired
     private PlayerRepository playerRepository;
 
+    @Autowired
+    private TeamRepository teamRepository;
+
     @ExpectSelect(1)
     @Test
     public void should_find_all_players() {
@@ -41,4 +47,34 @@ public class PlayerRepositoryTest {
         assertThat(players).hasSize(2);
     }
 
+    @Test
+    @ExpectJdbcBatching(batchSize = 1)
+    void should_delete_in_batch() {
+        // when
+        teamRepository.deleteAll();
+    }
+
+    @Test
+    @ExpectJdbcBatching(batchSize = 1)
+    void should_insert_in_batch() {
+        // given
+        Team team = teamRepository.findAll()
+                .stream()
+                .findAny()
+                .orElseThrow(() -> new AssertionError("No team exists"));
+
+        Player player = aNewPlayer(team);
+
+        // when
+        playerRepository.saveAll(singletonList(player));
+    }
+
+    private Player aNewPlayer(Team team) {
+        Player player = new Player();
+        player.setId((long) 2);
+        player.setFirstName("someFirstName");
+        player.setLastName("someLastName");
+        player.setTeam(team);
+        return player;
+    }
 }
