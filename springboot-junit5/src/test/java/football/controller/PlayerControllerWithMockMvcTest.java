@@ -27,7 +27,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(classes = {FootballApplication.class})
+@SpringBootTest(
+  classes = {FootballApplication.class}
+, properties = "spring.datasource.data=classpath:import-teams.sql"
+                                   + ",classpath:import-players.sql"
+)
 @AutoConfigureMockMvc
 @QuickPerfTest
 public class PlayerControllerWithMockMvcTest {
