@@ -18,7 +18,6 @@ import football.entity.Player;
 import football.entity.Team;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
-import org.quickperf.sql.annotation.DisplaySql;
 import org.quickperf.sql.annotation.ExpectJdbcBatching;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -37,7 +36,6 @@ public class PlayerRepositoryBatchTest {
 
     @Test
     @ExpectJdbcBatching()
-    @DisplaySql
     void should_insert_in_batch() {
 
         Team team = aTeam();

@@ -15,19 +15,13 @@ package football.repository;
 
 import football.QuickPerfBeanConfig;
 import football.entity.Player;
-import football.entity.Team;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
-import org.quickperf.sql.annotation.DisplaySql;
-import org.quickperf.sql.annotation.DisplaySqlOfTestMethodBody;
-import org.quickperf.sql.annotation.ExpectJdbcBatching;
 import org.quickperf.sql.annotation.ExpectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.jdbc.Sql;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
