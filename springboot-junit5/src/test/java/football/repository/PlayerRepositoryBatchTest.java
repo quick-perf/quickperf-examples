@@ -18,63 +18,51 @@ import football.entity.Player;
 import football.entity.Team;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
+import org.quickperf.sql.annotation.DisplaySql;
 import org.quickperf.sql.annotation.ExpectJdbcBatching;
-import org.quickperf.sql.annotation.ExpectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 
+import java.util.Arrays;
 import java.util.List;
 
-import static java.util.Collections.singletonList;
-import static org.assertj.core.api.Assertions.assertThat;
-
 @Import(QuickPerfBeanConfig.class)
-@DataJpaTest()
+@DataJpaTest(properties = "spring.datasource.data=classpath:import-teams.sql")
 @QuickPerfTest
-public class PlayerRepositoryTest {
+public class PlayerRepositoryBatchTest {
 
     @Autowired
     private PlayerRepository playerRepository;
 
-    @Autowired
-    private TeamRepository teamRepository;
-
-    @ExpectSelect(1)
     @Test
-    public void should_find_all_players() {
-        List<Player> players = playerRepository.findAll();
-        assertThat(players).hasSize(2);
-    }
-
-    @Test
-    @ExpectJdbcBatching(batchSize = 1)
-    void should_delete_in_batch() {
-        // when
-        teamRepository.deleteAll();
-    }
-
-    @Test
-    @ExpectJdbcBatching(batchSize = 1)
+    @ExpectJdbcBatching()
+    @DisplaySql
     void should_insert_in_batch() {
-        // given
-        Team team = teamRepository.findAll()
-                .stream()
-                .findAny()
-                .orElseThrow(() -> new AssertionError("No team exists"));
 
-        Player player = aNewPlayer(team);
+        Team team = aTeam();
+        List<Player> teams = Arrays.asList(aNewPlayer(team), aNewPlayer(team));
 
-        // when
-        playerRepository.saveAll(singletonList(player));
+        playerRepository.saveAll(teams);
+
+        System.out.println("Retrieve all players");
+
+        playerRepository.flush();
+
+    }
+
+    private Team aTeam() {
+        Team team = new Team();
+        team.setId(1L);
+        return team;
     }
 
     private Player aNewPlayer(Team team) {
         Player player = new Player();
-        player.setId((long) 2);
         player.setFirstName("someFirstName");
         player.setLastName("someLastName");
         player.setTeam(team);
         return player;
     }
+
 }

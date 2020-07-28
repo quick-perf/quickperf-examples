@@ -31,9 +31,12 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = {FootballApplication.class}
-              , webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
-               )
+@SpringBootTest(
+  classes = {FootballApplication.class}
+, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+, properties = "spring.datasource.data=classpath:import-teams.sql"
+                                   + ",classpath:import-players.sql"
+)
 @QuickPerfTest
 public class PlayerControllerTest {
 
