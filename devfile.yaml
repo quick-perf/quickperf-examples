@@ -53,6 +53,13 @@ components:
       - name: m2
         containerPath: /work/volumes/.m2
 
+  - alias: didact-plugin
+    preferences:
+      didact.openDefaultTutorialAtStartup: true
+      che.welcome.enable: false
+    type: chePlugin
+    reference: >-
+      https://github.com/sunix/che-plugin-registry/raw/master/v3/plugins/redhat/vscode-didact/0.1.17/meta.yaml
 
 commands:
 
@@ -154,11 +161,18 @@ commands:
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.service.PlayerServiceTest
         component: maven
 
-  - name: Spring Boot Repository JUnit 5
+  - name: Spring Boot Repository Batch JUnit 5
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
-        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositoryBatchTest
+        component: maven
+
+  - name: Spring Boot Repository Select JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositorySelectTest
         component: maven
 
   - name: Micronaut Data N+1 select
