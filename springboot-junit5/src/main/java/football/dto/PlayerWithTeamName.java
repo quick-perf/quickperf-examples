@@ -23,6 +23,9 @@ public class PlayerWithTeamName implements Serializable {
 
     private String team;
 
+    // For Jackson
+    public PlayerWithTeamName() { }
+
     public PlayerWithTeamName(String firstName, String lastName, String team) {
         this.firstName = firstName;
         this.lastName = lastName;
