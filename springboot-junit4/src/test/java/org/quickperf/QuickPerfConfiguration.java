@@ -48,6 +48,8 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
                 // Not relevant with an in-memory database used for testing purpose
                 , expectMaxQueryExecutionTime( 30)
 
+                , disableStatements()
+
         );
 
     }
