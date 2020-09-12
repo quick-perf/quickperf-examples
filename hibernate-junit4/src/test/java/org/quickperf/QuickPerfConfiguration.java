@@ -46,7 +46,7 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
                 , disableExactlySameSelects()
 
                 // Not relevant with an in-memory database used for testing purpose
-                , expectMaxQueryExecutionTime( 30, TimeUnit.MILLISECONDS)
+                , expectMaxQueryExecutionTime( 30)
 
         );
 

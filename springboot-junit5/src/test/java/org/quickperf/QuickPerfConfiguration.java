@@ -18,7 +18,6 @@ import org.quickperf.config.SpecifiableGlobalAnnotations;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.concurrent.TimeUnit;
 
 import static org.quickperf.sql.annotation.SqlAnnotationBuilder.*;
 
@@ -46,7 +45,7 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
                 , disableExactlySameSelects()
 
                 // Not relevant with an in-memory database used for testing purpose
-                , expectMaxQueryExecutionTime( 30, TimeUnit.MILLISECONDS)
+                , expectMaxQueryExecutionTime( 30)
 
         );
 
