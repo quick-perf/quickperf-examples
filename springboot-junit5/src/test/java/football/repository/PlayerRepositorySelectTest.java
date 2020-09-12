@@ -29,7 +29,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Import(QuickPerfSpringConfig.class)
 @DataJpaTest(properties = "spring.datasource.data=classpath:import-teams.sql"
                         + ",classpath:import-players.sql")
-@QuickPerfTest
 public class PlayerRepositorySelectTest {
 
     @Autowired

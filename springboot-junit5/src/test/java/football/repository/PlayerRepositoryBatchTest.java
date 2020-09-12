@@ -28,7 +28,6 @@ import java.util.List;
 
 @Import(QuickPerfSpringConfig.class)
 @DataJpaTest(properties = "spring.datasource.data=classpath:import-teams.sql")
-@QuickPerfTest
 public class PlayerRepositoryBatchTest {
 
     @Autowired
