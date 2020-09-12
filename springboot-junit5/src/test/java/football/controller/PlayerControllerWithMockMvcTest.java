@@ -33,7 +33,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                                    + ",classpath:import-players.sql"
 )
 @AutoConfigureMockMvc
-@QuickPerfTest
 public class PlayerControllerWithMockMvcTest {
 
     @Autowired

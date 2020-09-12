@@ -37,7 +37,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 , properties = "spring.datasource.data=classpath:import-teams.sql"
                                    + ",classpath:import-players.sql"
 )
-@QuickPerfTest
 public class PlayerControllerTest {
 
     @LocalServerPort
