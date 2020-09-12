@@ -73,7 +73,7 @@
         </dependency>
         <dependency>
             <groupId>org.quickperf</groupId>
-            <artifactId>quick-perf-sql-spring5</artifactId>
+            <artifactId>quick-perf-springboot2-starter</artifactId>
             <scope>test</scope>
         </dependency>
         <!-- End of QuickPerf dependencies -->

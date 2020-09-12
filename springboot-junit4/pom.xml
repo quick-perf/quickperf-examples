@@ -65,6 +65,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.quickperf</groupId>
+            <artifactId>quick-perf-springboot2-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <exclusions>
