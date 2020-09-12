@@ -18,13 +18,8 @@ import org.quickperf.config.SpecifiableGlobalAnnotations;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.concurrent.TimeUnit;
 
-import static org.quickperf.sql.annotation.SqlAnnotationBuilder.disableExactlySameSelects;
-import static org.quickperf.sql.annotation.SqlAnnotationBuilder.disableLikeWithLeadingWildcard;
-import static org.quickperf.sql.annotation.SqlAnnotationBuilder.disableSameSelectTypesWithDifferentParams;
-import static org.quickperf.sql.annotation.SqlAnnotationBuilder.expectJdbcBatching;
-import static org.quickperf.sql.annotation.SqlAnnotationBuilder.expectMaxQueryExecutionTime;
+import static org.quickperf.sql.annotation.SqlAnnotationBuilder.*;
 
 /**
  * This class configures global annotations that is to say annotations applying on
@@ -50,7 +45,7 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
                 , disableExactlySameSelects()
 
                 // Not relevant with an in-memory database used for testing purpose
-                , expectMaxQueryExecutionTime( 30, TimeUnit.MILLISECONDS)
+                , expectMaxQueryExecutionTime( 30)
 
         );
 
