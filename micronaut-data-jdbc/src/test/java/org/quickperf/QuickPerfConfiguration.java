@@ -49,6 +49,9 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
 
                 , disableStatements()
 
+                // Preview feature
+                //, disableQueriesWithoutBindParameters()
+
         );
 
     }
