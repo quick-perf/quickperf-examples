@@ -26,7 +26,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.test.skip>true</maven.test.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit-5.version>5.6.2</junit-5.version>
+        <junit-5.version>5.7.0</junit-5.version>
     </properties>
 
     <repositories>
