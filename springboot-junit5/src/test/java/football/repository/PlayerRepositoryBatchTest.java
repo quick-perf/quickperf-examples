@@ -42,8 +42,6 @@ public class PlayerRepositoryBatchTest {
 
         playerRepository.saveAll(teams);
 
-        System.out.println("Retrieve all players");
-
         playerRepository.flush();
 
     }
