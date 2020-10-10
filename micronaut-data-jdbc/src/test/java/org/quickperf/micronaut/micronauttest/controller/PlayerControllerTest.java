@@ -18,11 +18,16 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.client.RxHttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.test.annotation.MicronautTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
 import org.quickperf.jvm.allocation.AllocationUnit;
 import org.quickperf.jvm.annotations.HeapSize;
 import org.quickperf.micronaut.micronauttest.dto.PlayerWithTeamName;
+import org.quickperf.micronaut.micronauttest.jdbc.entity.Player;
+import org.quickperf.micronaut.micronauttest.jdbc.entity.Team;
+import org.quickperf.micronaut.micronauttest.jdbc.repository.PlayerRepository;
+import org.quickperf.micronaut.micronauttest.jdbc.repository.TeamRepository;
 import org.quickperf.sql.annotation.ExpectSelect;
 
 import javax.inject.Inject;
@@ -33,6 +38,41 @@ import static org.assertj.core.api.Assertions.assertThat;
 @MicronautTest
 @QuickPerfTest
 public class PlayerControllerTest {
+
+    @Inject
+    private PlayerRepository playerRepository;
+
+    @Inject
+    private TeamRepository teamRepository;
+
+    @BeforeEach
+    public void before() {
+
+        Team team1 = new Team();
+        team1.setId(1L);
+        team1.setName("Manchester United");
+        teamRepository.save(team1);
+
+        Team team2 = new Team();
+        team2.setId(2L);
+        team2.setName("Atlético de Madrid'");
+        teamRepository.save(team2);
+
+        Player player1 = new Player();
+        player1.setId(1L);
+        player1.setFirstName("Paul");
+        player1.setLastName("Pogba");
+        player1.setTeam(team1);
+        playerRepository.save(player1);
+
+        Player player2 = new Player();
+        player2.setId(2L);
+        player2.setFirstName("Antoine");
+        player2.setLastName("Griezmann");
+        player2.setTeam(team2);
+        playerRepository.save(player2);
+
+    }
 
     @Inject
     @Client("/")
