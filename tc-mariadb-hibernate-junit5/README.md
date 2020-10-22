@@ -4,5 +4,3 @@ At the beginning of each test, a SQL script defined in the [import.sql](src/test
 This script inserts two players and their team in the database.
 
 Global annotations are configured in [QuickPerfConfiguration](src/test/java/org/quickperf/QuickPerfConfiguration.java). These annotations apply on each test.
-
-Thoses tests are supposed to fail, in order for you to corrected them.
