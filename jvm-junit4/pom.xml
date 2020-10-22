@@ -64,11 +64,6 @@
         </dependency>
         <dependency>
             <groupId>org.quickperf</groupId>
-            <artifactId>quick-perf-junit4</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.quickperf</groupId>
             <artifactId>quick-perf-jfr-annotations</artifactId>
             <scope>test</scope>
         </dependency>
