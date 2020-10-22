@@ -23,8 +23,6 @@ import java.sql.SQLException;
 
 public class TestDataSourceBuilder {
 
-
-
     private TestDataSourceBuilder() { }
 
     public static TestDataSourceBuilder aDataSource() {
@@ -40,10 +38,6 @@ public class TestDataSourceBuilder {
         dataSource.setMaxActive(4);
         dataSource.setPoolPreparedStatements(true);
         return dataSource;
-    }
-
-    public static void sampleInitFunction(Connection connection) throws SQLException {
-        //
     }
 
 }

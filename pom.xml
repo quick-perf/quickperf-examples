@@ -34,7 +34,8 @@
         <module>micronaut-hibernate-jpa</module>
         <module>micronaut-data-jdbc</module>
         <module>quarkus</module>
-        <module>tc-hibernate-junit5</module>
+        <module>tc-mariadb-hibernate-junit5</module>
+        <module>tc-postgresql-hibernate-junit5</module>
         <module>tc-springboot-junit5</module>
     </modules>
 
