@@ -16,8 +16,7 @@ package football.repository;
 import football.entity.Player;
 import football.entity.Team;
 import org.junit.jupiter.api.Test;
-import org.quickperf.junit5.QuickPerfTest;
-import org.quickperf.spring.sql.QuickPerfSpringConfig;
+import org.quickperf.spring.sql.QuickPerfSqlConfig;
 import org.quickperf.sql.annotation.ExpectJdbcBatching;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -26,7 +25,7 @@ import org.springframework.context.annotation.Import;
 import java.util.Arrays;
 import java.util.List;
 
-@Import(QuickPerfSpringConfig.class)
+@Import(QuickPerfSqlConfig.class)
 @DataJpaTest(properties = "spring.datasource.data=classpath:import-teams.sql")
 public class PlayerRepositoryBatchTest {
 
