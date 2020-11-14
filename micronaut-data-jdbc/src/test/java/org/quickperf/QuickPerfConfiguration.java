@@ -42,7 +42,7 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
                 , // https://use-the-index-luke.com/sql/where-clause/searching-for-ranges/like-performance-tuning
                 disableLikeWithLeadingWildcard()
 
-                , disableExactlySameSelects()
+                , disableSameSelects()
 
                 // Not relevant with an in-memory database used for testing purpose
                 , expectMaxQueryExecutionTime( 30)
