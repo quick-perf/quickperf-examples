@@ -17,7 +17,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
 import org.quickperf.jvm.allocation.AllocationUnit;
-import org.quickperf.jvm.annotations.*;
+import org.quickperf.jvm.annotations.ExpectNoHeapAllocation;
+import org.quickperf.jvm.annotations.HeapSize;
+import org.quickperf.jvm.annotations.JvmOptions;
+import org.quickperf.jvm.annotations.MeasureHeapAllocation;
+import org.quickperf.jvm.jfr.annotation.ExpectNoJvmIssue;
+import org.quickperf.jvm.jfr.annotation.ProfileJvm;
 
 import java.util.ArrayList;
 

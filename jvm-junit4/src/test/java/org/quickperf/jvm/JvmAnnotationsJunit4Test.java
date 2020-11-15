@@ -18,7 +18,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.quickperf.junit4.QuickPerfJUnitRunner;
 import org.quickperf.jvm.allocation.AllocationUnit;
-import org.quickperf.jvm.annotations.*;
+import org.quickperf.jvm.annotations.ExpectNoHeapAllocation;
+import org.quickperf.jvm.annotations.HeapSize;
+import org.quickperf.jvm.annotations.MeasureHeapAllocation;
+import org.quickperf.jvm.jfr.annotation.ExpectNoJvmIssue;
+import org.quickperf.jvm.jfr.annotation.ProfileJvm;
 
 import java.util.ArrayList;
 
