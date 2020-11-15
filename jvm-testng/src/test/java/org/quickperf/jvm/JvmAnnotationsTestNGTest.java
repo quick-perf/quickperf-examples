@@ -14,7 +14,11 @@
 package org.quickperf.jvm;
 
 import org.quickperf.jvm.allocation.AllocationUnit;
-import org.quickperf.jvm.annotations.*;
+import org.quickperf.jvm.annotations.ExpectNoHeapAllocation;
+import org.quickperf.jvm.annotations.HeapSize;
+import org.quickperf.jvm.annotations.MeasureHeapAllocation;
+import org.quickperf.jvm.jfr.annotation.ExpectNoJvmIssue;
+import org.quickperf.jvm.jfr.annotation.ProfileJvm;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
