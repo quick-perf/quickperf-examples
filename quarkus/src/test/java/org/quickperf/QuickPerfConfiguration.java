@@ -32,7 +32,7 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
         return Arrays.asList(
                 // Can reveal some N+1 selects
                 // https://blog.jooq.org/2017/12/18/the-cost-of-jdbc-server-roundtrips/
-                disableSameSelectTypesWithDifferentParams()
+                disableSameSelectTypesWithDifferentParamValues()
 
                 , // Sometimes, JDBC batching can be disabled:
                 // https://abramsm.wordpress.com/2008/04/23/hibernate-batch-processing-why-you-may-not-be-using-it-even-if-you-think-you-are/
