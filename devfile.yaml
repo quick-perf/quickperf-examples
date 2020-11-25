@@ -57,9 +57,9 @@ components:
     preferences:
       didact.openDefaultTutorialAtStartup: true
       che.welcome.enable: false
+      didact.defaultUrl: /projects/quickperf-examples/README.md
     type: chePlugin
-    reference: >-
-      https://github.com/sunix/che-plugin-registry/raw/master/v3/plugins/redhat/vscode-didact/0.1.17/meta.yaml
+    id: redhat/vscode-didact/latest
 
 commands:
 
