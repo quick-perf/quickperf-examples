@@ -28,17 +28,33 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.quickperf</groupId>
+                <artifactId>quick-perf-bom</artifactId>
+                <version>1.0.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <dependency>
-            <groupId>org.quickperf</groupId>
-            <artifactId>quick-perf-testng</artifactId>
-            <version>1.0.0-RC7</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.quickperf</groupId>
+            <artifactId>quick-perf-testng</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.quickperf</groupId>
+            <artifactId>quick-perf-jfr-annotations</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

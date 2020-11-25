@@ -19,18 +19,18 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.quickperf.junit5.QuickPerfTest;
+import org.quickperf.spring.sql.QuickPerfSqlConfig;
 import org.quickperf.sql.annotation.ExpectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 
-import football.QuickPerfBeanConfig;
 import football.entity.Player;
 
 @DataJpaTest()
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Import(QuickPerfBeanConfig.class)
+@Import(QuickPerfSqlConfig.class)
 @QuickPerfTest
 public class PlayerRepositoryTest {
 

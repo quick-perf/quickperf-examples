@@ -13,10 +13,9 @@
 
 package football.repository;
 
-import football.QuickPerfBeanConfig;
 import football.entity.Player;
 import org.junit.jupiter.api.Test;
-import org.quickperf.junit5.QuickPerfTest;
+import org.quickperf.spring.sql.QuickPerfSqlConfig;
 import org.quickperf.sql.annotation.ExpectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -26,10 +25,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Import(QuickPerfBeanConfig.class)
+@Import(QuickPerfSqlConfig.class)
 @DataJpaTest(properties = "spring.datasource.data=classpath:import-teams.sql"
                         + ",classpath:import-players.sql")
-@QuickPerfTest
 public class PlayerRepositorySelectTest {
 
     @Autowired

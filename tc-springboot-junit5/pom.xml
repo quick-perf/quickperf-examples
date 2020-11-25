@@ -15,12 +15,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.quickperf</groupId>
@@ -31,21 +25,29 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.test.skip>true</maven.test.skip>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.4.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.6.2</version>
+                <version>5.7.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.quickperf</groupId>
                 <artifactId>quick-perf-bom</artifactId>
-                <version>1.0.0-RC6</version>
+                <version>1.0.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

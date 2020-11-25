@@ -10,18 +10,35 @@
  *
  * Copyright 2020-2020 the original author or authors.
  */
-package football;
 
-import org.quickperf.spring.sql.QuickPerfProxyBeanPostProcessor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+package football.dto;
 
-@Configuration
-public class QuickPerfBeanConfig {
+import java.io.Serializable;
 
-    @Bean
-    public QuickPerfProxyBeanPostProcessor dataSourceBeanPostProcessor() {
-        return new QuickPerfProxyBeanPostProcessor();
+public class PlayerWithTeamName implements Serializable {
+
+    private String firstName;
+
+    private String lastName;
+
+    private String team;
+
+    public PlayerWithTeamName(String firstName, String lastName, String team) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.team = team;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getTeam() {
+        return team;
     }
 
 }

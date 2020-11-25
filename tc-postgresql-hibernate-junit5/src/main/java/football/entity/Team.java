@@ -11,18 +11,37 @@
  * Copyright 2020-2020 the original author or authors.
  */
 
-package football;
+package football.entity;
 
-import org.quickperf.spring.sql.QuickPerfProxyBeanPostProcessor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-@Configuration
-public class QuickPerfBeanConfig {
+@Entity
+public class Team implements Serializable {
 
-    @Bean
-    public QuickPerfProxyBeanPostProcessor dataSourceBeanPostProcessor() {
-        return new QuickPerfProxyBeanPostProcessor();
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+    private String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

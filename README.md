@@ -3,7 +3,7 @@
 </div>
 
 # QuickPerf examples
-[![try it online](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
+[![try it online](https://www.eclipse.org/che/contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
 
 This repository contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Testcontainers*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
 
@@ -12,7 +12,8 @@ This repository contains several projects showing how to use QuickPerf [JVM](htt
 [Hibernate without Spring](#Hibernate-without-Spring) <br><br>
 [Spring Boot](#Spring-Boot) <br><br>
 [Micronaut](#Micronaut) <br><br>
-[Quarkus](#Quarkus)
+[Quarkus](#Quarkus) <br><br>
+[Testcontainers](#Testcontainers)
 
 ## How to run the examples
 *[QuickPerf artifacts are published to Maven central](https://search.maven.org/search?q=org.quickperf).*
@@ -43,21 +44,21 @@ Tests are skiped by default as they will all fail, if you want to execute them v
 ## JVM annotations
 
 **[jvm-junit4](jvm-junit4/src/test/java/org/quickperf/jvm)**<br>
-Examples showing how to use some **JVM annotations** with **JUnit 4**.
+Examples showing how to use some **JVM annotations** with **JUnit 4**
 
 - [Open the org.quickperf.jvm.JvmAnnotationsJunit4Test class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fjvm-junit4%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fjvm%2FJvmAnnotationsJunit4Test.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=JvmAnnotationsJunit4Test.java)
 - [Kick off the test @MeasureHeapAllocation](didact://?commandId=workbench.action.tasks.runTask&text=JvmAnnotationsJunit4Test.java%20%2F%20%40MeasureHeapAllocation)
 
 **[jvm-junit5](jvm-junit5/src/test/java/org/quickperf/jvm)**<br>
-Examples showing how to use some **JVM annotations** with **JUnit 5**.
+Examples showing how to use some **JVM annotations** with **JUnit 5**
 
 - [Open the org.quickperf.jvm.JvmAnnotationsJunit5Test class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fjvm-junit5%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fjvm%2FJvmAnnotationsJunit5Test.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=JvmAnnotationsJunit5Test.java)
 - [Kick off the test @MeasureHeapAllocation](didact://?commandId=workbench.action.tasks.runTask&text=JvmAnnotationsJunit5Test.java%20%2F%20%40MeasureHeapAllocation)
 
 **[jvm-testng](jvm-testng/src/test/java/org/quickperf/jvm)**<br>
-Examples showing how to use some **JVM annotations** with **TestNG**.
+Examples showing how to use some **JVM annotations** with **TestNG**
 
 - [Open the org.quickperf.jvm.JvmAnnotationsTestNGTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fjvm-testng%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fjvm%2FJvmAnnotationsTestNGTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=JvmAnnotationsTestNGTest.java)
@@ -67,26 +68,32 @@ Examples showing how to use some **JVM annotations** with **TestNG**.
 ## Hibernate without Spring
 
 **[hibernate-junit4](hibernate-junit4)**<br>
-Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 4**.
+Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 4**
 
 - [Open the org.quickperf.sql.HibernateJUnit4Test class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fhibernate-junit4%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fsql%2FHibernateJUnit4Test.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Hibernate%20JUnit%204)
 
 **[hibernate-junit5](hibernate-junit5)**<br>
-Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 5**.
+Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 5**
+
+**[hibernate-postgresql-testcontainers-junit5](tc-postgresql-hibernate-junit5)**<br>
+Examples showing how to use some SQL annotations with **Hibernate**, **JUnit 5**, **PostgreSQL** and [**Testcontainers**](https://www.testcontainers.org)
+
+**[hibernate-mariadb-testcontainers-junit5](tc-mariadb-hibernate-junit5)**<br>
+Examples showing how to use some SQL annotations with **Hibernate**, **JUnit 5**, **MariaDB** and [**Testcontainers**](https://www.testcontainers.org)
 
 - [Open the org.quickperf.sql.HibernateJUnit5Test class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fhibernate-junit5%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fsql%2FHibernateJUnit5Test.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Hibernate%20JUnit%205)
 
 **[hibernate-testng](hibernate-testng)**<br>
-Examples showing how to use some SQL annotations with **Hibernate** and **TestNG**.
+Examples showing how to use some SQL annotations with **Hibernate** and **TestNG**
 
 - [Open the org.quickperf.sql.HibernateTestNGTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fhibernate-testng%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fsql%2FHibernateTestNGTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Hibernate%20TestNG)
 
 ## Spring Boot
 **[springboot-junit4](springboot-junit4)**<br>
-This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 4**. 
+This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 4** 
 
 - [Open the football.controller.PlayerControllerTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fspringboot-junit4%2Fsrc%2Ftest%2Fjava%2Ffootball%2Fcontroller%2FPlayerControllerTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Spring%20Boot%20Contoller%20JUnit%204)
@@ -97,7 +104,7 @@ This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 4**.
 
 
 **[springboot-junit5](springboot-junit5)**<br>
-This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5**. 
+This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5**
 
 - [Open the football.controller.PlayerControllerTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fspringboot-junit5%2Fsrc%2Ftest%2Fjava%2Ffootball%2Fcontroller%2FPlayerControllerTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Spring%20Boot%20Contoller%20JUnit%205)
@@ -110,12 +117,12 @@ This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5**.
 
 
 **[testcontainers-springboot-junit5](tc-springboot-junit5)**<br>
-This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5** and [Testcontainers](https://www.testcontainers.org). 
+This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5** and [**Testcontainers**](https://www.testcontainers.org)
 
 
 ## Micronaut
 **[micronaut-hibernate-jpa](micronaut-hibernate-jpa)**<br>
-This **Micronaut/Hibernate/JPA** project illustrates how to use QuickPerf with **JUnit 5**. 
+This **Micronaut/Hibernate/JPA** project illustrates how to use QuickPerf with **JUnit 5** 
 
 
 
@@ -137,3 +144,15 @@ This **Quarkus** project illustrates how to use QuickPerf with **JUnit 5** for S
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Quarkus%20N%2B1%20select)
 - [Open the org.quickperf.quarkus.quarkustest.controller.PlayerControllerTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fquarkus%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fquarkus%2Fquarkustest%2Fcontroller%2FPlayerControllerTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Quarkus%20http%20test)
+
+## Testcontainers
+
+**[hibernate-postgresql-testcontainers-junit5](tc-postgresql-hibernate-junit5)**<br>
+Examples showing how to use some SQL annotations with **Hibernate**, **JUnit 5**, **PostgreSQL** and [**Testcontainers**](https://www.testcontainers.org)
+
+**[hibernate-mariadb-testcontainers-junit5](tc-mariadb-hibernate-junit5)**<br>
+Examples showing how to use some SQL annotations with **Hibernate**, **JUnit 5**, **MariaDB** and [**Testcontainers**](https://www.testcontainers.org)
+
+**[testcontainers-springboot-junit5](tc-springboot-junit5)**<br>
+This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5** and [**Testcontainers**](https://www.testcontainers.org) 
+

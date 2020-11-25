@@ -10,18 +10,28 @@
  *
  * Copyright 2020-2020 the original author or authors.
  */
+
 package football;
 
-import org.quickperf.spring.sql.QuickPerfProxyBeanPostProcessor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import football.entity.Player;
 
-@Configuration
-public class QuickPerfBeanConfig {
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
-    @Bean
-    public QuickPerfProxyBeanPostProcessor dataSourceBeanPostProcessor() {
-        return new QuickPerfProxyBeanPostProcessor();
+public class PlayerRepository {
+
+    private final EntityManager entityManager;
+
+    public PlayerRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public List<Player> findAll() {
+        TypedQuery<Player> fromPlayer
+                = entityManager.createQuery("FROM Player", Player.class);
+        return fromPlayer.getResultList();
     }
 
 }

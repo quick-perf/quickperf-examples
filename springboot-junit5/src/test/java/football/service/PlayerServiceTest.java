@@ -25,8 +25,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = {FootballApplication.class})
-@QuickPerfTest
+@SpringBootTest(classes = {FootballApplication.class}
+              , properties = "spring.datasource.data=classpath:import-teams.sql"
+                          + ",classpath:import-players.sql")
 public class PlayerServiceTest {
 
     @Autowired

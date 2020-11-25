@@ -16,12 +16,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.quickperf</groupId>
@@ -32,14 +26,30 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.test.skip>true</maven.test.skip>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.4.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.quickperf</groupId>
                 <artifactId>quick-perf-bom</artifactId>
-                <version>1.0.0-RC7</version>
+                <version>1.0.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -51,6 +61,12 @@
         <dependency>
             <groupId>org.quickperf</groupId>
             <artifactId>quick-perf-junit4-spring5</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.quickperf</groupId>
+            <artifactId>quick-perf-springboot2-sql-starter</artifactId>
             <scope>test</scope>
         </dependency>
 

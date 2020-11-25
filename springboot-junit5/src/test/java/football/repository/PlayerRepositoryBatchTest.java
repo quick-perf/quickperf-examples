@@ -13,11 +13,10 @@
 
 package football.repository;
 
-import football.QuickPerfBeanConfig;
 import football.entity.Player;
 import football.entity.Team;
 import org.junit.jupiter.api.Test;
-import org.quickperf.junit5.QuickPerfTest;
+import org.quickperf.spring.sql.QuickPerfSqlConfig;
 import org.quickperf.sql.annotation.ExpectJdbcBatching;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -26,9 +25,8 @@ import org.springframework.context.annotation.Import;
 import java.util.Arrays;
 import java.util.List;
 
-@Import(QuickPerfBeanConfig.class)
+@Import(QuickPerfSqlConfig.class)
 @DataJpaTest(properties = "spring.datasource.data=classpath:import-teams.sql")
-@QuickPerfTest
 public class PlayerRepositoryBatchTest {
 
     @Autowired
@@ -42,8 +40,6 @@ public class PlayerRepositoryBatchTest {
         List<Player> teams = Arrays.asList(aNewPlayer(team), aNewPlayer(team));
 
         playerRepository.saveAll(teams);
-
-        System.out.println("Retrieve all players");
 
         playerRepository.flush();
 
