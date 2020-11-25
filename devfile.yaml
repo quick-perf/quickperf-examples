@@ -16,7 +16,7 @@ components:
 
 
   - alias: maven
-    image: 'quay.io/eclipse/che-java11-maven:7.14.3'
+    image: 'quay.io/eclipse/che-java11-maven:7.21.1'
     type: dockerimage
     mountSources: true
     memoryLimit: 512Mi
