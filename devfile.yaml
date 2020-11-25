@@ -54,12 +54,18 @@ components:
         containerPath: /work/volumes/.m2
 
   - alias: didact-plugin
+    type: chePlugin
+    id: redhat/vscode-didact/latest
     preferences:
       didact.openDefaultTutorialAtStartup: true
       che.welcome.enable: false
-      didact.defaultUrl: /projects/quickperf-examples/README.md
-    type: chePlugin
-    id: redhat/vscode-didact/latest
+      didact.defaultUrl: /projects/quickperf-examples/che-didact-guide.md
+
+  - alias: git
+    type: dockerimage
+    mountSources: true
+    memoryLimit: 256M
+    image: sunix/git-devtools
 
 commands:
 
