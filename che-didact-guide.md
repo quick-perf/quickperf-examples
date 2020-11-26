@@ -2,10 +2,12 @@
 <img src="https://pbs.twimg.com/profile_banners/926219963333038086/1518645789" alt="QuickPerf"/>
 </div>
 
-# QuickPerf examples
-Welcome to the QuickPerf examples guide. This guide contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Testcontainers*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
+# Welcome to the QuickPerf examples guide
+This guide contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Testcontainers*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
 
-The guide is interactif, you can click on the bellow links to open files or start the predefined commands. Powered by [Eclipse Che](https://www.eclipse.org/che/) and [VSCode Didact](https://github.com/redhat-developer/vscode-didact).
+The guide is interactif, you can click on the bellow links to open files or start the predefined commands.
+
+Powered by [Eclipse Che](https://www.eclipse.org/che/) and [VSCode Didact](https://github.com/redhat-developer/vscode-didact).
 
 Enjoy!
 
