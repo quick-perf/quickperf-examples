@@ -18,7 +18,11 @@ This repository contains several projects showing how to use QuickPerf [JVM](htt
 
 ## Online
 
-Run the examples with an online interactive guide: [![try it online](https://www.eclipse.org/che/contribute.svg)](che-didact-guide)
+Run the examples with an online interactive guide:
+
+[![try it online](https://www.eclipse.org/che/contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
+
+Powered by [Eclipse Che](https://www.eclipse.org/che/) and [VSCode Didact](https://github.com/redhat-developer/vscode-didact).
 
 ## From your computer
 *[QuickPerf artifacts are published to Maven central](https://search.maven.org/search?q=org.quickperf).*
