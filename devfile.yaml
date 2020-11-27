@@ -16,7 +16,7 @@ components:
 
 
   - alias: maven
-    image: 'quay.io/eclipse/che-java11-maven:7.14.3'
+    image: 'quay.io/eclipse/che-java11-maven:7.21.1'
     type: dockerimage
     mountSources: true
     memoryLimit: 512Mi
@@ -53,6 +53,19 @@ components:
       - name: m2
         containerPath: /work/volumes/.m2
 
+  - alias: didact-plugin
+    type: chePlugin
+    id: redhat/vscode-didact/latest
+    preferences:
+      didact.openDefaultTutorialAtStartup: true
+      che.welcome.enable: false
+      didact.defaultUrl: /projects/quickperf-examples/che-didact-guide.md
+
+  - alias: git
+    type: dockerimage
+    mountSources: true
+    memoryLimit: 256M
+    image: sunix/git-devtools
 
 commands:
 
@@ -154,11 +167,18 @@ commands:
         command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.service.PlayerServiceTest
         component: maven
 
-  - name: Spring Boot Repository JUnit 5
+  - name: Spring Boot Repository Batch JUnit 5
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
         type: exec
-        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositoryTest
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositoryBatchTest
+        component: maven
+
+  - name: Spring Boot Repository Select JUnit 5
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/quickperf-examples'
+        type: exec
+        command: mvn clean test -Dmaven.test.skip=false -Dmaven.test.failure.ignore -f springboot-junit5/pom.xml -Dtest=football.repository.PlayerRepositorySelectTest
         component: maven
 
   - name: Micronaut Data N+1 select
