@@ -3,7 +3,6 @@
 </div>
 
 # QuickPerf examples
-[![try it online](https://www.eclipse.org/che/contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
 
 This repository contains several projects showing how to use QuickPerf [JVM](https://github.com/quick-perf/doc/wiki/JVM-annotations) and [SQL](https://github.com/quick-perf/doc/wiki/SQL-annotations) annotations with various frameworks (*JUnit 4*, *JUnit 5*, *TestNG*, *Testcontainers*, *Spring Boot*, *Quarkus*, *Micronaut*, ...).
 
@@ -16,6 +15,12 @@ This repository contains several projects showing how to use QuickPerf [JVM](htt
 [Testcontainers](#Testcontainers)
 
 ## How to run the examples
+
+## Online
+
+Run the examples with an online interactive guide: [![try it online](https://www.eclipse.org/che/contribute.svg)](che-didact-guide)
+
+## From your computer
 *[QuickPerf artifacts are published to Maven central](https://search.maven.org/search?q=org.quickperf).*
 
 Execute the following command lines:
