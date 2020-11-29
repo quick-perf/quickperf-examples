@@ -21,7 +21,7 @@ import org.quickperf.annotation.DisableGlobalAnnotations;
 import org.quickperf.junit5.QuickPerfTest;
 import org.quickperf.sql.annotation.ExpectSelect;
 import org.quickperf.sql.config.QuickPerfSqlDataSourceBuilder;
-import org.testcontainers.containers.MariaDBContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -37,7 +37,14 @@ import static org.quickperf.sql.config.TestDataSourceBuilder.aDataSource;
 
 @Testcontainers
 @QuickPerfTest
-public class HibernateJUnit5Test {
+public class PostgreSQLTest {
+
+    @Container
+    static final PostgreSQLContainer db =
+            new PostgreSQLContainer<>("postgres:12.3")
+            .withDatabaseName("testcontainers")
+            .withUsername("nes")
+            .withPassword("quick");
 
     /* FIRST TYPE OF N+1 SELECT
 
@@ -142,14 +149,6 @@ public class HibernateJUnit5Test {
     }
 
     // -------------------------------------------------------------------------------------
-
-    
-
-    @Container
-    static MariaDBContainer db = new MariaDBContainer<>("mariadb:10.5.2")
-            .withDatabaseName("testcontainers")
-            .withUsername("nes")
-            .withPassword("quick");
 
     private EntityManager entityManager;
     {
