@@ -34,7 +34,6 @@ Examples showing how to use some **JVM annotations** with **TestNG**
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=JvmAnnotationsTestNGTest.java)
 - [Kick off the test @MeasureHeapAllocation](didact://?commandId=workbench.action.tasks.runTask&text=JvmAnnotationsTestNGTest.java%20%2F%20%40MeasureHeapAllocation)
 
-
 ## Hibernate without Spring
 
 **hibernate-junit4**<br>
@@ -42,18 +41,6 @@ Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 
 
 - [Open the org.quickperf.sql.HibernateJUnit4Test class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fhibernate-junit4%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fsql%2FHibernateJUnit4Test.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Hibernate%20JUnit%204)
-
-**hibernate-junit5**<br>
-Examples showing how to use some SQL annotations with **Hibernate** and **JUnit 5**
-
-**hibernate-postgresql-testcontainers-junit5**<br>
-Examples showing how to use some SQL annotations with **Hibernate**, **JUnit 5**, **PostgreSQL** and [**Testcontainers**](https://www.testcontainers.org)
-
-**hibernate-mariadb-testcontainers-junit5**<br>
-Examples showing how to use some SQL annotations with **Hibernate**, **JUnit 5**, **MariaDB** and [**Testcontainers**](https://www.testcontainers.org)
-
-- [Open the org.quickperf.sql.HibernateJUnit5Test class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fhibernate-junit5%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fsql%2FHibernateJUnit5Test.java&number=2)
-- [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Hibernate%20JUnit%205)
 
 **hibernate-testng**<br>
 Examples showing how to use some SQL annotations with **Hibernate** and **TestNG**
@@ -72,7 +59,6 @@ This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 4**
 - [Open the football.repository.PlayerRepositoryTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fspringboot-junit4%2Fsrc%2Ftest%2Fjava%2Ffootball%2Frepository%2FPlayerRepositoryTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Spring%20Boot%20Repository%20JUnit%204)
 
-
 **springboot-junit5**<br>
 This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5**
 
@@ -85,16 +71,7 @@ This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5**
 - [Open the football.repository.PlayerRepositorySelectTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fspringboot-junit5%2Fsrc%2Ftest%2Fjava%2Ffootball%2Frepository%2FPlayerRepositorySelectTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Spring%20Boot%20Repository%20Select%20JUnit%205)
 
-
-**testcontainers-springboot-junit5**<br>
-This **Spring Boot** project illustrates how to use QuickPerf with **JUnit 5** and [**Testcontainers**](https://www.testcontainers.org)
-
-
 ## Micronaut
-**micronaut-hibernate-jpa**<br>
-This **Micronaut/Hibernate/JPA** project illustrates how to use QuickPerf with **JUnit 5** 
-
-
 
 **micronaut-data-jdbc**<br>
 This **Micronaut/Data JDBC** project illustrates how to use QuickPerf with **JUnit 5**. 
@@ -104,8 +81,6 @@ This **Micronaut/Data JDBC** project illustrates how to use QuickPerf with **JUn
 - [Open the org.quickperf.micronaut.micronauttest.controller.PlayerControllerTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fmicronaut-data-jdbc%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fmicronaut%2Fmicronauttest%2Fcontroller%2FPlayerControllerTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Micronaut%20Data%20HTTP)
 
-
-
 ## Quarkus
 **quarkus**<br>
 This **Quarkus** project illustrates how to use QuickPerf with **JUnit 5** for SQL annotations only. 
@@ -114,4 +89,3 @@ This **Quarkus** project illustrates how to use QuickPerf with **JUnit 5** for S
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Quarkus%20N%2B1%20select)
 - [Open the org.quickperf.quarkus.quarkustest.controller.PlayerControllerTest class](didact://?commandId=vscode.open&projectFilePath=quickperf-examples%2Fquarkus%2Fsrc%2Ftest%2Fjava%2Forg%2Fquickperf%2Fquarkus%2Fquarkustest%2Fcontroller%2FPlayerControllerTest.java&number=2)
 - [Kick off the test](didact://?commandId=workbench.action.tasks.runTask&text=Quarkus%20http%20test)
-
