@@ -36,7 +36,7 @@ public class PlayerControllerWithMockMvcTest {
     private MockMvc mockMvc;
 
     /*
-    This test is annoted with @ExpectSelect(1), that is to say that this test should only generate 1 sql 
+    This test is annotated with @ExpectSelect(1), that is to say that this test should only generate 1 sql
     request.
 
     This type of N+1 SELECT can't be solved by configuring a LAZY fetch type only it has to use 
