@@ -16,13 +16,16 @@ This repository contains several projects showing how to use QuickPerf [JVM](htt
 
 ## How to run the examples
 
-## Online
-
+## Online in Developer Sandbox
 Run the examples with an online interactive guide (hosted by Red Hat):
 
-[![try it online](https://www.eclipse.org/che/contribute.svg)](https://che.openshift.io/f?url=https://github.com/quick-perf/quickperf-examples)
+Developer Sandbox is a Red Hat OpenShift cluster to deploy your application code as a container on this self-service, cloud-hosted experience. Skip installations and deployment and jump directly into OpenShift.
+
+1. Get registered if not:  https://developers.redhat.com/developer-sandbox
+2. Start the workspace: [![try it online](https://www.eclipse.org/che/contribute.svg)](https://workspaces.openshift.com/f?url=https://github.com/quick-perf/quickperf-examples)
 
 Powered by [Eclipse Che](https://www.eclipse.org/che/) and [VSCode Didact](https://github.com/redhat-developer/vscode-didact).
+
 
 ## From your computer
 *[QuickPerf artifacts are published to Maven central](https://search.maven.org/search?q=org.quickperf).*
