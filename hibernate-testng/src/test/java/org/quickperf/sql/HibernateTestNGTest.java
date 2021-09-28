@@ -132,7 +132,7 @@ public class HibernateTestNGTest {
                 players
                         .stream()
                         .map(player -> new PlayerWithTeamName(
-                                        player.getFirstName()
+                                          player.getFirstName()
                                         , player.getLastName()
                                         , player.getTeam().getName()
                                 )
