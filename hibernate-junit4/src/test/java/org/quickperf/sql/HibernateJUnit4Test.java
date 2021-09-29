@@ -137,7 +137,7 @@ public class HibernateJUnit4Test {
                  players
                 .stream()
                 .map(player -> new PlayerWithTeamName(
-                                player.getFirstName()
+                                  player.getFirstName()
                                 , player.getLastName()
                                 , player.getTeam().getName()
                         )

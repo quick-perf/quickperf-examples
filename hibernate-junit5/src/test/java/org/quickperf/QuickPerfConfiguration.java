@@ -51,6 +51,8 @@ public class QuickPerfConfiguration implements SpecifiableGlobalAnnotations {
 
                 , disableQueriesWithoutBindParameters()
 
+                , expectNoConnectionLeak()
+
         );
 
     }
